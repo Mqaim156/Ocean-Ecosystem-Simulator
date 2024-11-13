@@ -4,6 +4,7 @@ class Animal {
   String species;
   PVector speed, pos;
   boolean dead = false;
+  int health = 100;
   
   //Constructor
   Animal(int a, int h, PVector s, PVector p, int v, int r, String sp){
@@ -18,7 +19,8 @@ class Animal {
   }
   
  //Methods
- 
+
+ //Eating method
  void eat(int filling, Animal other){
    
    this.hunger += filling;
@@ -27,19 +29,23 @@ class Animal {
  }
  
  
+ //Dying method
  void die(){
    this.dead = true;
    
  }
  
+ //Base resting method (For movement)
  void rest(){
    this.pos.x += this.speed.x;
    this.pos.y += this.speed.y;
    
  }
  
+ //Method to run when being attacked
  void run(Animal predator){
   
+   //Makes sure run the correct way
    if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
       this.speed.x *= -1;
      
@@ -50,8 +56,9 @@ class Animal {
      
    }
    
+   //Run fast
    this.pos.x += this.speed.x * 4; 
  }
- 
+
 }
   
