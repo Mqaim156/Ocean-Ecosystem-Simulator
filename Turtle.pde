@@ -1,4 +1,4 @@
-Class Turtle extends Animal{
+class Turtle extends Animal{
 //Fields
 boolean isDefending = false;
 

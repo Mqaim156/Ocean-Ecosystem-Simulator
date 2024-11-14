@@ -1,4 +1,4 @@
-Class Octopus extends Animal{
+class Octopus extends Animal{
 
 //Constuctor
     Octopus(int a, int h, PVector s, PVector p, int v, int r){

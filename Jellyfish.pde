@@ -1,4 +1,4 @@
-Class Jellyfish extends Animal{
+class Jellyfish extends Animal{
 
 //Constructor 
     Jellyfish(int a, int h, PVector s, PVector p, int v, int r){

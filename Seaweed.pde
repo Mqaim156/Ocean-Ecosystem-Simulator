@@ -1,4 +1,4 @@
-Class Seaweed extends Animal{
+class Seaweed extends Animal{
 
 //Constuctor
     Seaweed(int a, int h, PVector s, PVector p, int v, int r){
