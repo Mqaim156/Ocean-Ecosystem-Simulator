@@ -1,13 +1,16 @@
-class Animal {
+class animal {
   //Fields
   int age, hunger, vision, reproduction;
   String species;
   PVector speed, pos;
   boolean dead = false;
   int health = 100;
+  boolean beingHunt = false;
+  int diameter = 40;
+  color status;
   
   //Constructor
-  Animal(int a, int h, PVector s, PVector p, int v, int r, String sp){
+  animal(int a, int h, PVector s, PVector p, int v, int r, String sp){
     this.age = a;
     this.hunger = h;
     this.speed = s;
@@ -18,7 +21,35 @@ class Animal {
     
   }
   
- //Methods
+  //Methods
+  //check Hunger
+  void checkHunger(){
+    
+    if (this.hunger < 6) {
+      rest();
+    }
+    
+    else {
+      hunt();    
+    }
+  } 
+ 
+ 
+  // Hunt / search for a prey
+  void hunt(Animal prey) {
+    float distance = sqrt((pow((prey.pos.x - this.pos.x), 2))+ (pow((prey.pos.y - this.pos.y), 2)));
+   
+    if( distance < vision)
+      chase(other);
+    
+  }
+ 
+  void chase(Animal prey) {
+  PVector path = new PVector();
+    
+    
+  }
+
 
  //Eating method
  void eat(int filling, Animal other){
