@@ -45,7 +45,7 @@ class animal {
   }
  
   void chase(Animal prey) {
-  PVector path = new PVector();
+    PVector path = new PVector();
     
     
   }
