@@ -1,7 +1,7 @@
-class Jellyfish extends Animal{
+class jellyfish extends animal{
 
 //Constructor 
-    Jellyfish(int a, int h, PVector s, PVector p, int v, int r){
+    jellyfish(int a, int h, PVector s, PVector p, int v, int r){
         super(a, h, s, p, v, r, "Jellyfish");
 
     }
@@ -18,7 +18,7 @@ void drawMe(){
 }
 
 //Method to turn on defence
-void sting(Animal other){
+void sting(animal other){
   other.health -= 20;
 
 }

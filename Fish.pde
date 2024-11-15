@@ -1,7 +1,7 @@
-class Fish extends Animal{
+class fish extends animal{
 
 //Constuctor
-    Fish(int a, int h, PVector s, PVector p, int v, int r, String sp){
+    fish(int a, int h, PVector s, PVector p, int v, int r, String sp){
         super(a, h, s, p, v, r, "Fish");
 
     }

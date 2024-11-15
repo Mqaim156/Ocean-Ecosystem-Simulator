@@ -5,9 +5,6 @@ class animal {
   PVector speed, pos;
   boolean dead = false;
   int health = 100;
-  boolean beingHunt = false;
-  int diameter = 40;
-  color status;
   
   //Constructor
   animal(int a, int h, PVector s, PVector p, int v, int r, String sp){
@@ -50,9 +47,10 @@ class animal {
     
   }
 
+ //Methods
 
  //Eating method
- void eat(int filling, Animal other){
+ void eat(int filling, animal other){
    
    this.hunger += filling;
    other.die();
@@ -74,7 +72,7 @@ class animal {
  }
  
  //Method to run when being attacked
- void run(Animal predator){
+ void run(animal predator){
   
    //Makes sure run the correct way
    if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
@@ -93,4 +91,5 @@ class animal {
 
 }
   
-  ///////////uigigygiyg
+
+  

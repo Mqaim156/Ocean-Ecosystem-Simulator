@@ -1,7 +1,7 @@
-class Shark extends Animal{
+class shark extends animal{
 
 //Constuctor
-    Shark(int a, int h, PVector s, PVector p, int v, int r){
+    shark(int a, int h, PVector s, PVector p, int v, int r){
         super(a, h, s, p, v, r, "Shark");
 
     }

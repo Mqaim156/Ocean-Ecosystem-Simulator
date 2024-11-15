@@ -1,7 +1,7 @@
-class Seaweed extends Animal{
+class seaweed extends animal{
 
 //Constuctor
-    Seaweed(int a, int h, PVector s, PVector p, int v, int r){
+    seaweed(int a, int h, PVector s, PVector p, int v, int r){
         super(a, h, s, p, v, r, "Seaweed");
 
     }
