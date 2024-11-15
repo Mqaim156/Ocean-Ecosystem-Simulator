@@ -14,7 +14,7 @@ void drawMe(){
 
 }
 
-void school(Clownfish a, Clownfish b){
+void school(Clownfish a, Clownfish, b){
     
     ////////////ILL DO LATER
 
