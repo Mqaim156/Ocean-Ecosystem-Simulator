@@ -1,12 +1,12 @@
 int totalAnimals;
 
-Animal[] allAnimals = new Animal[totalAnimals];
-Sharks[] sharks = new Shark[5];
-Fish[] fishies = new Fish[10];
-Seaweed[] seaweeds = new Seaweed[30];
-Turtle[] turtles = new Turtle[8];
-Octopus[] octopuses = new Octopus[3];
-Jellyfish[] jellies = new Jellyfish[5];
+animal[] allAnimals = new animal[totalAnimals];
+shark[] sharks = new shark[5];
+fish[] fishies = new fish[10];
+seaweed[] seaweeds = new seaweed[30];
+turtle[] turtles = new turtle[8];
+octopus[] octopuses = new octopus[3];
+jellyfish[] jellies = new jellyfish[5];
 
 void setup(){
   size(1000, 1000);

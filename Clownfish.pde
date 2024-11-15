@@ -1,7 +1,7 @@
-class Clownfish extends Fish{
+class clownfish extends fish{
 
 //Constuctor
-    Clownfish(int a, int h, PVector s, PVector p, int v, int r){
+    clownfish(int a, int h, PVector s, PVector p, int v, int r){
         super(a, h, s, p, v, r, "Clownfish");
 
     }
@@ -14,7 +14,7 @@ void drawMe(){
 
 }
 
-void school(Clownfish a, Clownfish b){
+void school(clownfish a, clownfish b){
     
     ////////////ILL DO LATER
 

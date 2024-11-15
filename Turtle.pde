@@ -1,9 +1,9 @@
-class Turtle extends Animal{
+class turtle extends animal{
 //Fields
 boolean isDefending = false;
 
 //Constructor 
-    Turtle(int a, int h, PVector s, PVector p, int v, int r){
+    turtle(int a, int h, PVector s, PVector p, int v, int r){
         super(a, h, s, p, v, r, "Turtle");
 
     }
@@ -29,7 +29,7 @@ void drawMe(){
 
 //Method to turn on defence
 void defend(){
-  isDefending == true;
+  isDefending = true;
 
 }
 

@@ -1,7 +1,7 @@
-class Octopus extends Animal{
+class octopus extends animal{
 
 //Constuctor
-    Octopus(int a, int h, PVector s, PVector p, int v, int r){
+    octopus(int a, int h, PVector s, PVector p, int v, int r){
         super(a, h, s, p, v, r, "Octopus");
 
     }
@@ -17,7 +17,7 @@ void drawMe(){
 }
 
 //Change run method
-void run(Animal predator){
+void run(animal predator){
   
    //Makes sure run the correct way
    if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
