@@ -1,17 +1,25 @@
-class shark extends animal{
+class Shark extends Animal{
 
-//Constuctor
-    shark(int a, int h, PVector s, PVector p, int v, int r){
-        super(a, h, s, p, v, r, "Shark");
+  // Fields
+  color spColor = color(128,128,128); 
+  
+  //Constuctor
+  Shark(int a, int h, PVector s, PVector p){
+    super(a, h, s, p, a*10, a*10, "Shark", 35); // change the 10 for vision and rep rate
+        
 
-    }
+  }
 
-//Draw me method
+  //Draw me method
 
-void drawMe(){
+  void drawMe(){
+    fill(spColor);
+    circle(this.pos.x, this.pos.y, diameter);
+    
+    updatePos();
 
-////////WILL BE DONE WITH VISUALS
+    ////////WILL BE DONE WITH VISUALS
 
-}
+  }
 
 }

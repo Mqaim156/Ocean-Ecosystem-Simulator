@@ -1,36 +1,41 @@
-class turtle extends animal{
-//Fields
-boolean isDefending = false;
+class Turtle extends Animal{
+  //Fields
+  boolean isDefending = false;
+  color spColor = color(128,128,0);
+  int filling = 3;
+  
+  //Constructor 
+  Turtle(int a, int h, PVector s, PVector p){
+    super(a, h, s, p, a*10, a*10, "Turtle", 20);
 
-//Constructor 
-    turtle(int a, int h, PVector s, PVector p, int v, int r){
-        super(a, h, s, p, v, r, "Turtle");
-
-    }
+  }
 
 
-//Methods
+  //Methods
 
-//Rewrites drawMe
+  //Rewrites drawMe
 
-void drawMe(){
-    if (isDefending == true){
-
+  void drawMe(){
+    //if (isDefending == true){
+    fill(spColor);
+    circle(this.pos.x, this.pos.y, diameter);
+    
+    updatePos();
         //////////Code later with visuals
-    }
+    //}
 
-    else{
+    //else{
 
         ///////////Code later with visuals
 
-    }
+    //}
 
-}
+  }
 
 //Method to turn on defence
-void defend(){
-  isDefending = true;
+  void defend(){
+    isDefending = true;
 
-}
+  }
 
 }

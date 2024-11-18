@@ -1,26 +1,34 @@
-class jellyfish extends animal{
+class Jellyfish extends Animal{
+  
+  //Fields
+  color spColor = color(0,0,255);
+  int filling = 2;
+  
+  //Constructor 
+  Jellyfish(int a, int h, PVector s, PVector p){
+    super(a, h, s, p, a*10, a*10, "Jellyfish", 23);
 
-//Constructor 
-    jellyfish(int a, int h, PVector s, PVector p, int v, int r){
-        super(a, h, s, p, v, r, "Jellyfish");
-
-    }
+  }
 
 
-//Methods
+  //Methods
 
-//Draw me method
+  //Draw me method
 
-void drawMe(){
+  void drawMe(){
+    fill(spColor);
+    circle(this.pos.x, this.pos.y, diameter);
+    
+    updatePos();
 
-////////WILL BE DONE WITH VISUALS
+    ////////WILL BE DONE WITH VISUALS
 
-}
+  }
 
 //Method to turn on defence
-void sting(animal other){
-  other.health -= 20;
+  void sting(Animal other){
+    other.health -= 20;
 
-}
+  }
 
 }

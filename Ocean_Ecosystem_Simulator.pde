@@ -1,24 +1,50 @@
-int totalAnimals;
+int totalAnimals = 20;
 
-animal[] allAnimals = new animal[totalAnimals];
-shark[] sharks = new shark[5];
-fish[] fishies = new fish[10];
-seaweed[] seaweeds = new seaweed[30];
-turtle[] turtles = new turtle[8];
-octopus[] octopuses = new octopus[3];
-jellyfish[] jellies = new jellyfish[5];
+int totalSharks = int(0.15 * totalAnimals);
+int totalJellies = int(0.1 * totalAnimals);
+int totalClowns = int(0.35 * totalAnimals);
+int totalOctopuses = int(0.1 * totalAnimals);
+int totalWeed = int(0.2 * totalAnimals);
+int totalTurtles= int(0.1 * totalAnimals);
 
-void setup(){
+ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
+
+
+void setup() {
   size(1000, 1000);
   
-  //for()
+  // Populate the Animal ArrayList
+  for (int i = 0; i<totalSharks; i++)
+    allAnimals.add( new Shark( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
 
+  for (int i = 0; i<totalJellies; i++)
+    allAnimals.add( new Jellyfish( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+
+  for (int i = 0; i<totalClowns; i++)
+    allAnimals.add( new Clownfish( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+    
+  for (int i = 0; i<totalOctopuses; i++)
+    allAnimals.add( new Octopus( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+
+  for (int i = 0; i<totalWeed; i++)
+    allAnimals.add( new Seaweed( int(random(3, 28)), int(random(1, 10)), new PVector( random(width), height ) ));
+
+  for (int i = 0; i<totalTurtles; i++)
+    allAnimals.add( new Turtle( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width), random(height/2, height) ) ));
 
 }
 
 
 void draw(){
-
-
+  
+  background(0);
+  
+  for (int i=0; i<totalAnimals; i++){
+    if(allAnimals.get(i).dead == false){
+      allAnimals.get(i).drawMe();
+      allAnimals.get(i).checkHunger(allAnimals);
+    }
+  }
+ 
 
 }

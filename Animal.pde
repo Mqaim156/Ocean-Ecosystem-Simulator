@@ -1,13 +1,17 @@
-class animal {
+class Animal {
   //Fields
   int age, hunger, vision, reproduction;
   String species;
   PVector speed, pos;
   boolean dead = false;
   int health = 100;
+  boolean beingHunt = false;
+  int diameter;
+  int filling = 0;
+  int lastHungerUpdated = 0;
   
   //Constructor
-  animal(int a, int h, PVector s, PVector p, int v, int r, String sp){
+  Animal(int a, int h, PVector s, PVector p, int v, int r, String sp, int d){
     this.age = a;
     this.hunger = h;
     this.speed = s;
@@ -15,80 +19,187 @@ class animal {
     this.vision = v;
     this.reproduction = r;
     this.species = sp;
+    this.diameter = d;
+    this.filling = 0;
+    
+    if(this.speed.x == 0 && this.species != "Seaweed")
+      this.speed.x = 2;
     
   }
   
   //Methods
   //check Hunger
-  void checkHunger(){
-    
-    if (this.hunger < 6) {
+  void checkHunger(ArrayList<Animal> preys){
+      
+    if (this.hunger < 9) {
       rest();
     }
     
     else {
-      hunt();    
+      hunt(preys);    
     }
   } 
  
- 
+
   // Hunt / search for a prey
-  void hunt(Animal prey) {
-    float distance = sqrt((pow((prey.pos.x - this.pos.x), 2))+ (pow((prey.pos.y - this.pos.y), 2)));
+  void hunt(ArrayList<Animal> preys) {
+    
+    Animal nearestPrey = null;
+    
+    // initial value of the minimum distance
+    float minDist = 1000;
+    
+    for(Animal prey : preys){
+      if(prey.dead || prey == this)
+        continue;
+      
+    
+      float distance =  PVector.dist(this.pos, prey.pos);
+      
+      if(distance < vision && distance < minDist) {
+        minDist = distance;
+        nearestPrey = prey;
+      }
+    }
    
-    if( distance < vision)
-      chase(other);
+    if(nearestPrey != null)
+      chase(nearestPrey);
     
   }
  
   void chase(Animal prey) {
-    PVector path = new PVector();
+    
+    
+    PVector direction =  PVector.sub(prey.pos, this.pos);
+    
+    direction.normalize();
+    
+    float currSpeed = speed.mag();
+    speed.set(direction.mult(currSpeed));
+    
+    prey.run(this);
+    
+    updatePos();
+    
+    if(PVector.dist(this.pos, prey.pos) < ( (this.diameter/2) + (prey.diameter/2) )){
+      eat(prey);
+    
+    }
     
     
   }
-
- //Methods
-
- //Eating method
- void eat(int filling, animal other){
-   
-   this.hunger += filling;
-   other.die();
-   
- }
- 
- 
- //Dying method
- void die(){
-   this.dead = true;
-   
- }
- 
- //Base resting method (For movement)
- void rest(){
-   this.pos.x += this.speed.x;
-   this.pos.y += this.speed.y;
-   
- }
- 
- //Method to run when being attacked
- void run(animal predator){
   
-   //Makes sure run the correct way
-   if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
+  void updatePos(){
+  
+    pos.add(speed);
+    
+    //deadYet();
+    
+    checkBorderCollision();
+    
+    updateHunger();
+    
+  }
+  
+  
+
+  // check whether the animal is dead or not
+  //void deadYet(){};
+    
+
+  //Eating method
+  void eat( Animal prey ) {
+    
+    prey.die();
+    
+    float factor = 1; // for now 1
+    float predFilling = ((prey.diameter/this.diameter) * prey.filling ) * factor; // random formula to check how much the prey will fill the predator
+    this.hunger -= predFilling;
+    
+    
+   
+  }
+  
+  void updateHunger(){
+    int currTime = millis();
+    int timeElapsed = currTime - lastHungerUpdated;
+    
+    if(timeElapsed >= 15000){
+      this.hunger -= 1;
+      
+      if (this.hunger > 10)
+        this.hunger = 10;
+    }
+    
+    lastHungerUpdated = currTime;
+  }
+  
+ 
+ 
+  //Dying method
+  void die(){
+    this.dead = true;
+   
+  }
+ 
+  //Base resting method (For movement)
+  void rest(){
+    this.pos.x += this.speed.x;
+    this.pos.y += this.speed.y;
+   
+  }
+  // CAUSING MANY BUGS
+  //Method to run when being attacked 
+  void run(Animal predator){
+  
+    //Makes sure run the correct way
+    if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
       this.speed.x *= -1;
      
-   }
+    }
    
-   else if (this.pos.x - predator.pos.x <= 0 && this.speed.x >= 0){
-     this.speed.x *= -1;
+    else if (this.pos.x - predator.pos.x <= 0 && this.speed.x >= 0){
+      this.speed.x *= -1;
      
-   }
+    }
    
-   //Run fast
-   this.pos.x += this.speed.x * 4; 
- }
+    //Run fast
+    this.pos.x += this.speed.x * 4; 
+  }
+ 
+ 
+  void drawMe(){
+    
+  
+  }
+  
+  void checkBorderCollision(){
+  
+    // chceck upper wall
+    if(this.pos.y < diameter/2 )
+      this.speed.y = abs(this.speed.y);
+      
+    // check bottom wall
+    else if(this.pos.y > (height - diameter/2)){
+      this.speed.y *= -1;
+      this.pos.y = height - diameter/2; // Prevent overlap
+ 
+    }  
+    // check left wall
+    if(this.pos.x < diameter/2){ 
+      this.speed.x = abs(this.speed.x); 
+    }
+    
+    // check right wall
+    else if(this.pos.x > (width - diameter/2)) {
+      this.speed.x *= -1;
+      this.pos.x = width - diameter/2; // Prevent overlap
 
+    }
+    
+    
+    
+  }
 }
   
 

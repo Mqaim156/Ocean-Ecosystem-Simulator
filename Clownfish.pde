@@ -1,24 +1,35 @@
-class clownfish extends fish{
+class Clownfish extends Fish{
+  
+  // Fields
+  color spColor = color(255,140,0);
+  int filling = 2;
+  
+  
+  //Constuctor
+  Clownfish(int a, int h, PVector s, PVector p){
+    super(a, h, s, p, a*10, a*10, "Clownfish", 18);
 
-//Constuctor
-    clownfish(int a, int h, PVector s, PVector p, int v, int r){
-        super(a, h, s, p, v, r, "Clownfish");
+  }
 
-    }
+  //Draw me method
 
-//Draw me method
+  void drawMe(){
+    fill(spColor);
+    circle(this.pos.x, this.pos.y, diameter);
+    
+    updatePos();
+    println(this.hunger);
 
-void drawMe(){
+    
+  ////////WILL BE DONE WITH VISUALS
 
-////////WILL BE DONE WITH VISUALS
+  }
 
-}
-
-void school(clownfish a, clownfish b){
+  void school(Clownfish a, Clownfish b){
     
     ////////////ILL DO LATER
 
 
-}
+  }
 
 }
