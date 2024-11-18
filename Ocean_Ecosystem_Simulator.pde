@@ -9,9 +9,12 @@ int totalTurtles= int(0.1 * totalAnimals);
 
 ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
 
+////Import Gui
+//import g4p_controls.*;
 
 void setup() {
   size(1000, 1000);
+  //createGUI();
   
   // Populate the Animal ArrayList
   for (int i = 0; i<totalSharks; i++)

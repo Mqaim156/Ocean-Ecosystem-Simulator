@@ -77,7 +77,7 @@ class Animal {
     float currSpeed = speed.mag();
     speed.set(direction.mult(currSpeed));
     
-    prey.run(this);
+    //prey.run(this);
     
     updatePos();
     
@@ -149,23 +149,24 @@ class Animal {
    
   }
   // CAUSING MANY BUGS
-  //Method to run when being attacked 
-  void run(Animal predator){
   
-    //Makes sure run the correct way
-    if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
-      this.speed.x *= -1;
+  ////Method to run when being attacked 
+  //void run(Animal predator){
+  
+  //  //Makes sure run the correct way
+  //  if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
+  //    this.speed.x *= -1;
      
-    }
+  //  }
    
-    else if (this.pos.x - predator.pos.x <= 0 && this.speed.x >= 0){
-      this.speed.x *= -1;
+  //  else if (this.pos.x - predator.pos.x <= 0 && this.speed.x >= 0){
+  //    this.speed.x *= -1;
      
-    }
+  //  }
    
-    //Run fast
-    this.pos.x += this.speed.x * 4; 
-  }
+  //  //Run fast
+  //  this.pos.x += this.speed.x * 4; 
+  //}
  
  
   void drawMe(){
