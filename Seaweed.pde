@@ -3,6 +3,7 @@ class Seaweed extends Animal{
   // Fields
   color spColor = color(51, 69, 30);
   int filling =1;
+  String[] food = {};
  
   //Constuctor
   Seaweed(int a, int h, PVector p){

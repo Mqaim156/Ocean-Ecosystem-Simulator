@@ -1,8 +1,8 @@
 int totalAnimals = 20;
 
-int totalSharks = int(0.15 * totalAnimals);
+int totalSharks = int(0.05 * totalAnimals);
 int totalJellies = int(0.1 * totalAnimals);
-int totalClowns = int(0.35 * totalAnimals);
+int totalClowns = int(0.45 * totalAnimals);
 int totalOctopuses = int(0.1 * totalAnimals);
 int totalWeed = int(0.2 * totalAnimals);
 int totalTurtles= int(0.1 * totalAnimals);
@@ -18,22 +18,22 @@ void setup() {
   
   // Populate the Animal ArrayList
   for (int i = 0; i<totalSharks; i++)
-    allAnimals.add( new Shark( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+    allAnimals.add( new Shark( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
 
   for (int i = 0; i<totalJellies; i++)
-    allAnimals.add( new Jellyfish( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+    allAnimals.add( new Jellyfish( int(random(3, 28)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
 
   for (int i = 0; i<totalClowns; i++)
-    allAnimals.add( new Clownfish( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+    allAnimals.add( new Clownfish( int(random(3, 28)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
     
   for (int i = 0; i<totalOctopuses; i++)
-    allAnimals.add( new Octopus( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+    allAnimals.add( new Octopus( int(random(3, 28)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
 
   for (int i = 0; i<totalWeed; i++)
-    allAnimals.add( new Seaweed( int(random(3, 28)), int(random(1, 10)), new PVector( random(width), height ) ));
+    allAnimals.add( new Seaweed( int(random(3, 28)), int(random(1, 6)), new PVector( random(width), height ) ));
 
   for (int i = 0; i<totalTurtles; i++)
-    allAnimals.add( new Turtle( int(random(3, 28)), int(random(1, 10)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width), random(height/2, height) ) ));
+    allAnimals.add( new Turtle( int(random(3, 28)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width), random(height/2, height) ) ));
 
 }
 

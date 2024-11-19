@@ -3,7 +3,7 @@ class Octopus extends Animal{
   // Fields
   color spColor = color(255, 203, 164);
   int filling = 3;
-  
+  String[] food = {"Clownfish", "Turtle"};
   //Constuctor
   Octopus(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Octopus", 30);

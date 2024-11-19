@@ -3,6 +3,7 @@ class Clownfish extends Fish{
   // Fields
   color spColor = color(255,140,0);
   int filling = 2;
+  String[] food = {"Seaweed"};
   
   
   //Constuctor
@@ -18,7 +19,6 @@ class Clownfish extends Fish{
     circle(this.pos.x, this.pos.y, diameter);
     
     updatePos();
-    println(this.hunger);
 
     
   ////////WILL BE DONE WITH VISUALS

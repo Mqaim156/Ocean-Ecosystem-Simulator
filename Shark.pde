@@ -2,6 +2,7 @@ class Shark extends Animal{
 
   // Fields
   color spColor = color(128,128,128); 
+  String[] food = {"Clownfish", "Jellyfish", "Octopus", "Turtle"};
   
   //Constuctor
   Shark(int a, int h, PVector s, PVector p){
@@ -17,6 +18,7 @@ class Shark extends Animal{
     circle(this.pos.x, this.pos.y, diameter);
     
     updatePos();
+    println(this.hunger);
 
     ////////WILL BE DONE WITH VISUALS
 

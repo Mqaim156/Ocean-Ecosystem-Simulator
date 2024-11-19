@@ -9,6 +9,9 @@ class Animal {
   int diameter;
   int filling = 0;
   int lastHungerUpdated = 0;
+  String[] food;
+  boolean isFood = false;
+
   
   //Constructor
   Animal(int a, int h, PVector s, PVector p, int v, int r, String sp, int d){
@@ -31,7 +34,7 @@ class Animal {
   //check Hunger
   void checkHunger(ArrayList<Animal> preys){
       
-    if (this.hunger < 9) {
+    if (this.hunger < 6) {
       rest();
     }
     
@@ -44,6 +47,7 @@ class Animal {
   // Hunt / search for a prey
   void hunt(ArrayList<Animal> preys) {
     
+    
     Animal nearestPrey = null;
     
     // initial value of the minimum distance
@@ -51,9 +55,20 @@ class Animal {
     
     for(Animal prey : preys){
       if(prey.dead || prey == this)
-        continue;
+        continue;  
       
-    
+      //for (String sp : food){
+      //  if(prey.species.equals(sp)){
+      //    isFood = true;
+      //    break;
+        
+      //  }
+      
+      //}
+      
+      if(!isFood)
+        continue;
+        
       float distance =  PVector.dist(this.pos, prey.pos);
       
       if(distance < vision && distance < minDist) {
@@ -124,14 +139,15 @@ class Animal {
     int currTime = millis();
     int timeElapsed = currTime - lastHungerUpdated;
     
-    if(timeElapsed >= 15000){
-      this.hunger -= 1;
+    if(timeElapsed >= 5000){
+      this.hunger += 1;
+      
+      lastHungerUpdated = currTime;
       
       if (this.hunger > 10)
         this.hunger = 10;
     }
     
-    lastHungerUpdated = currTime;
   }
   
  
