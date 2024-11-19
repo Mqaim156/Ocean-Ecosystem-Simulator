@@ -11,6 +11,7 @@ class Animal {
   int lastHungerUpdated = 0;
   String[] food;
   boolean isFood = false;
+  boolean isRunning = false;
 
   
   //Constructor
@@ -82,6 +83,8 @@ class Animal {
     
   }
  
+ 
+//Chase method
   void chase(Animal prey) {
     
     
@@ -104,6 +107,7 @@ class Animal {
     
   }
   
+//Update position methods
   void updatePos(){
   
     pos.add(speed);
@@ -167,22 +171,35 @@ class Animal {
   // CAUSING MANY BUGS
   
   ////Method to run when being attacked 
-  //void run(Animal predator){
+  void run(Animal predator){
+    float predatorDis;
+    //Randomizes run speed so fish might or might not get away
+    float runSpeed = random(2,6);
+    
+    //Find distance between animal and predator
+    predatorDis = sqrt(pow(this.pos.x - predator.pos.x, 2) + pow(this.pos.y - predator.pos.y, 2));
+    
+    //CODE TO CHECK FOR PREDATOR
+    if (predatorDis < this.vision && isRunning == false){
+        //Makes fish run faster
+        isRunning = true;
+              
+        this.speed.x *= runSpeed;
+        this.speed.y *= runSpeed;
+        
+    }
+    
+        //Makes fish stop running
+    if (predatorDis > this.vision + 10 && isRunning == true){
+        isRunning = false; 
+        
+        this.speed.x /= runSpeed;
+        this.speed.y /= runSpeed;
+      }
+    
+    
+  }
   
-  //  //Makes sure run the correct way
-  //  if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
-  //    this.speed.x *= -1;
-     
-  //  }
-   
-  //  else if (this.pos.x - predator.pos.x <= 0 && this.speed.x >= 0){
-  //    this.speed.x *= -1;
-     
-  //  }
-   
-  //  //Run fast
-  //  this.pos.x += this.speed.x * 4; 
-  //}
  
  
   void drawMe(){
