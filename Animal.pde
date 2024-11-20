@@ -9,9 +9,7 @@ class Animal {
   int diameter;
   int filling = 0;
   int lastHungerUpdated = 0;
-  String[] food;
-  boolean isFood = false;
-
+  String[] food = {};
   
   //Constructor
   Animal(int a, int h, PVector s, PVector p, int v, int r, String sp, int d){
@@ -33,12 +31,13 @@ class Animal {
   //Methods
   //check Hunger
   void checkHunger(ArrayList<Animal> preys){
-      
+
     if (this.hunger < 6) {
       rest();
     }
     
     else {
+      //println("going to hunt");
       hunt(preys);    
     }
   } 
@@ -46,7 +45,7 @@ class Animal {
 
   // Hunt / search for a prey
   void hunt(ArrayList<Animal> preys) {
-    
+    //println("hunting");
     
     Animal nearestPrey = null;
     
@@ -54,31 +53,42 @@ class Animal {
     float minDist = 1000;
     
     for(Animal prey : preys){
-      if(prey.dead || prey == this)
+      if(prey.dead || prey == this) {
+        //println("cannot eat this");
         continue;  
-      
-      //for (String sp : food){
-      //  if(prey.species.equals(sp)){
-      //    isFood = true;
-      //    break;
+      }
         
-      //  }
       
-      //}
+      boolean isFood = false; 
+      println("dsadfasfs");
+      
+      for (String sp : food){
+        
+        println("species: ", sp);
+        if(prey.species.equals(sp)){
+          isFood = true;
+          break;
+        
+        }
+      
+      }
       
       if(!isFood)
         continue;
-        
+      
       float distance =  PVector.dist(this.pos, prey.pos);
       
       if(distance < vision && distance < minDist) {
         minDist = distance;
         nearestPrey = prey;
       }
+      
     }
    
     if(nearestPrey != null)
+      //println("chasing");
       chase(nearestPrey);
+      
     
   }
  

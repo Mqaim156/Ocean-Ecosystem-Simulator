@@ -9,7 +9,7 @@ class Clownfish extends Fish{
   //Constuctor
   Clownfish(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Clownfish", 18);
-
+    
   }
 
   //Draw me method

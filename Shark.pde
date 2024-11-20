@@ -16,9 +16,9 @@ class Shark extends Animal{
   void drawMe(){
     fill(spColor);
     circle(this.pos.x, this.pos.y, diameter);
-    
+    println(this.hunger);  
     updatePos();
-    println(this.hunger);
+    //println(this.hunger);
 
     ////////WILL BE DONE WITH VISUALS
 
