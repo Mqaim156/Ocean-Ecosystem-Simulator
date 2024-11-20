@@ -3,11 +3,11 @@ class Jellyfish extends Animal{
   //Fields
   color spColor = color(0,0,255);
   int filling = 2;
-  String[] food = {"Seaweed", "Clownfish"};
   
   //Constructor 
   Jellyfish(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Jellyfish", 23);
+    this.food = new String[] {"Seaweed", "Clownfish"};
 
   }
 

@@ -10,7 +10,9 @@ class Animal {
   int filling = 0;
   int lastHungerUpdated = 0;
   String[] food = {};
+  boolean isFood;
   boolean isRunning = false;
+
   
   //Constructor
   Animal(int a, int h, PVector s, PVector p, int v, int r, String sp, int d){
@@ -61,11 +63,11 @@ class Animal {
         
       
       boolean isFood = false; 
-      println("dsadfasfs");
+      //println("dsadfasfs");
       
       for (String sp : food){
         
-        println("species: ", sp);
+        //println("species: ", sp);
         if(prey.species.equals(sp)){
           isFood = true;
           break;
@@ -102,18 +104,16 @@ class Animal {
     
     direction.normalize();
     
-    float currSpeed = speed.mag();
-    speed.set(direction.mult(currSpeed));
+    float currSpeed = 1.5;
+    speed = direction.mult(currSpeed);
     
-    //prey.run(this);
+    prey.run(this);
     
     updatePos();
     
     if(PVector.dist(this.pos, prey.pos) < ( (this.diameter/2) + (prey.diameter/2) )){
       eat(prey);
-    
     }
-    
     
   }
   

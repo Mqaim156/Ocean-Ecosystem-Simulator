@@ -3,11 +3,11 @@ class Turtle extends Animal{
   boolean isDefending = false;
   color spColor = color(128,128,0);
   int filling = 3;
-  String[] food = {"Seaweed"};
   
   //Constructor 
   Turtle(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Turtle", 20);
+    this.food = new   String[] {"Seaweed"};
 
   }
 
