@@ -2,9 +2,9 @@ int totalAnimals = 20;
 
 int totalSharks = int(0.05 * totalAnimals);
 int totalJellies = int(0.1 * totalAnimals);
-int totalClowns = int(0.45 * totalAnimals);
+int totalClowns = int(0.25 * totalAnimals);
 int totalOctopuses = int(0.1 * totalAnimals);
-int totalWeed = int(0.2 * totalAnimals);
+int totalWeed = int(.4 * totalAnimals);
 int totalTurtles= int(0.1 * totalAnimals);
 
 ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
@@ -13,7 +13,7 @@ ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
 //import g4p_controls.*;
 
 void setup() {
-  size(1000, 1000);
+  size(734, 317);
   //createGUI();
   
   // Populate the Animal ArrayList
@@ -40,7 +40,15 @@ void setup() {
 
 void draw(){
   
-  background(0);
+  //Create background
+  
+  //tint(255,100); ///// Un comment line to remove after image 
+  
+  PImage coralReef;
+  coralReef = loadImage("CoralReef.jpg");
+  image(coralReef,1,1);
+  
+  //tint(255,255);///// Un comment line to remove after image 
   
   for (int i=0; i<totalAnimals; i++){
     if(allAnimals.get(i).dead == false){

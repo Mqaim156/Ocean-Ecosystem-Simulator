@@ -178,7 +178,6 @@ class Animal {
     this.pos.y += this.speed.y;
    
   }
-  // CAUSING MANY BUGS
   
   ////Method to run when being attacked 
   void run(Animal predator){

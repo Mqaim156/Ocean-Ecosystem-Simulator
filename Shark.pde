@@ -14,14 +14,12 @@ class Shark extends Animal{
   //Draw me method
 
   void drawMe(){
-    fill(spColor);
-    circle(this.pos.x, this.pos.y, diameter);
+
+    PImage sharkImg;
+    sharkImg = loadImage("SharkImg.png");
+    image(sharkImg, this.pos.x - 45, this.pos.y - 25, 50, 50);
 
     updatePos();
-    //println(this.hunger);
-
-    ////////WILL BE DONE WITH VISUALS
 
   }
-
 }

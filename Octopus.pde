@@ -7,7 +7,7 @@ class Octopus extends Animal{
   //Constuctor
   Octopus(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Octopus", 30);
-    this.food =  new String[] {"Clownfish", "Turtle"};
+    this.food =  new String[] {"Clownfish"};
 
   }
 
@@ -16,36 +16,11 @@ class Octopus extends Animal{
   //Draw me method
 
   void drawMe(){
-    fill(spColor);
-    circle(this.pos.x, this.pos.y, diameter);
+    PImage octopusImg;
+    octopusImg = loadImage("OctopusImg.png");
+    image(octopusImg,this.pos.x - 45,this.pos.y - 25, 50, 50);
     
     updatePos();
 
-  ////////WILL BE DONE WITH VISUALS
-
   }
-
- // //Change run method
- // void run(Animal predator){
-  
- //   //Makes sure run the correct way
- //   if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
- //     this.speed.x *= -1;
-     
- //   }
-   
- //   else if (this.pos.x - predator.pos.x <= 0 && this.speed.x >= 0){
- //     this.speed.x *= -1;
-     
- //   }
-   
- //   //Run fast
- //   this.pos.x += this.speed.x * 4; 
-
- //   //Ink
- //   //////////////////Draw Later
-
- //}
-
-
 }

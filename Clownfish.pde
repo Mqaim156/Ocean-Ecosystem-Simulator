@@ -15,8 +15,10 @@ class Clownfish extends Fish{
   //Draw me method
 
   void drawMe(){
-    fill(spColor);
-    circle(this.pos.x, this.pos.y, diameter);
+    PImage clownfishImg;
+    clownfishImg = loadImage("ClownfishImg.png");
+    image(clownfishImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+
     
     updatePos();
 

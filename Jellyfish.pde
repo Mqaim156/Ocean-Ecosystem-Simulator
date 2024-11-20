@@ -17,19 +17,11 @@ class Jellyfish extends Animal{
   //Draw me method
 
   void drawMe(){
-    fill(spColor);
-    circle(this.pos.x, this.pos.y, diameter);
+    PImage jellyfishImg;
+    jellyfishImg = loadImage("JellyfishImg.png");
+    image(jellyfishImg,this.pos.x - 25,this.pos.y - 15, 30, 30);
     
     updatePos();
 
-    ////////WILL BE DONE WITH VISUALS
-
   }
-
-//Method to turn on defence
-  void sting(Animal other){
-    other.health -= 20;
-
-  }
-
 }

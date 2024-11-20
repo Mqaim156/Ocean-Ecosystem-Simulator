@@ -16,14 +16,12 @@ class Seaweed extends Animal{
   //Draw me method
 
   void drawMe(){
-    fill(spColor);
-    circle(this.pos.x, this.pos.y, diameter);
+    PImage seaweedImg;
+    seaweedImg = loadImage("SeaweedImg.png");
+    image(seaweedImg,this.pos.x - 45,this.pos.y - 25, 50, 50);
     
     updatePos();
     
-    
-    ////////WILL BE DONE WITH VISUALS
-
   }
 
   //Eating method
