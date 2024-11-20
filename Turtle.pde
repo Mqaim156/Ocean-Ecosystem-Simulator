@@ -6,7 +6,7 @@ class Turtle extends Animal{
   //Constructor 
   Turtle(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Turtle", 20);
-    this.food = new   String[] {"Seaweed","Jellyfish"};
+    this.food = new   String[] {"Jellyfish"};
 
   }
 

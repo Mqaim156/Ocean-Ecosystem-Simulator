@@ -7,7 +7,7 @@ class Jellyfish extends Animal{
   //Constructor 
   Jellyfish(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Jellyfish", 23);
-    this.food = new String[] {"Seaweed", "Clownfish"};
+    this.food = new String[] {"Clownfish", "Redsnapper", "Tuna"};
 
   }
 

@@ -2,7 +2,9 @@ int totalAnimals = 20;
 
 int totalSharks = int(0.05 * totalAnimals);
 int totalJellies = int(0.1 * totalAnimals);
-int totalClowns = int(0.25 * totalAnimals);
+int totalClowns = int(0.10 * totalAnimals);
+int totalReds = int(0.10 * totalAnimals);
+int totalTunas = int(0.05 * totalAnimals);
 int totalOctopuses = int(0.1 * totalAnimals);
 int totalWeed = int(.4 * totalAnimals);
 int totalTurtles= int(0.1 * totalAnimals);
@@ -25,6 +27,12 @@ void setup() {
 
   for (int i = 0; i<totalClowns; i++)
     allAnimals.add( new Clownfish( int(random(3, 28)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+    
+  for (int i = 0; i<totalReds; i++)
+    allAnimals.add( new Redsnapper( int(random(3, 28)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+    
+  for (int i = 0; i<totalTunas; i++)
+    allAnimals.add( new Tuna( int(random(3, 28)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
     
   for (int i = 0; i<totalOctopuses; i++)
     allAnimals.add( new Octopus( int(random(3, 28)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width/2), random(height) ) ));

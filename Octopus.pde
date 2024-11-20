@@ -7,7 +7,7 @@ class Octopus extends Animal{
   //Constuctor
   Octopus(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Octopus", 30);
-    this.food =  new String[] {"Clownfish"};
+    this.food =  new String[] {"Clownfish", "Tuna", "Redsnapper"};
 
   }
 

@@ -21,17 +21,57 @@ class Clownfish extends Fish{
 
     
     updatePos();
+  }
+}
 
+class Redsnapper extends Fish{
+  
+  // Fields
+  color spColor = color(255,140,0);
+  int filling = 2;
+  String[] food = {"Seaweed"};
+  
+  
+  //Constuctor
+  Redsnapper(int a, int h, PVector s, PVector p){
+    super(a, h, s, p, a*10, a*10, "Redsnapper", 18);
     
-  ////////WILL BE DONE WITH VISUALS
-
   }
 
-  void school(Clownfish a, Clownfish b){
+  //Draw me method
+
+  void drawMe(){
+    PImage redsnapperImg;
+    redsnapperImg = loadImage("RedsnapperImg.png");
+    image(redsnapperImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+
     
-    ////////////ILL DO LATER
+    updatePos();
+  }
+}
 
-
+class Tuna extends Fish{
+  
+  // Fields
+  color spColor = color(255,140,0);
+  int filling = 2;
+  String[] food = {"Seaweed"};
+  
+  
+  //Constuctor
+  Tuna(int a, int h, PVector s, PVector p){
+    super(a, h, s, p, a*10, a*10, "Tuna", 18);
+    
   }
 
+  //Draw me method
+
+  void drawMe(){
+    PImage tunaImg;
+    tunaImg = loadImage("TunaImg.png");
+    image(tunaImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+
+    
+    updatePos();
+  }
 }
