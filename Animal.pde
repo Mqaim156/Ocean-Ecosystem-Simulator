@@ -76,6 +76,8 @@ class Animal {
       for (String sp : food){
         
         if(prey.species.equals(sp)){
+          if(prey.species.equals("Shark"))
+            println(prey.species);
           isFood = true;
           break;
         
@@ -130,7 +132,7 @@ class Animal {
     // filling the predator
     float factor = 1; // for now 1
     float predFilling = ((float)prey.diameter/this.diameter) * prey.filling * factor; // random formula to check how much the prey will fill the predator
-    println(this.species, " was filled: ", predFilling);
+    //println(this.species, " was filled: ", predFilling);
     this.hunger -= predFilling;
  
   }

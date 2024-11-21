@@ -1,7 +1,6 @@
 class Jellyfish extends Animal{
   
   //Fields
-  color spColor;
   
   //Constructor 
   Jellyfish(int a, int h, PVector s, PVector p){
@@ -9,10 +8,7 @@ class Jellyfish extends Animal{
     this.food = new String[] {"Seaweed", "Clownfish"};
     this.maxAge = 10;
     this.filling = 3;
-    this.R = 0;
-    this.G = 0;
-    this.B = 190;
-    this.spColor = color(R, G, B);
+
 
     this.food = new String[] {"Seaweed"};
 

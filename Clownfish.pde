@@ -1,18 +1,12 @@
-
 class Clownfish extends Fish{
   
   // Fields
-  color spColor;
   
   //Constuctor
   Clownfish(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Clownfish", 18);
     this.maxAge = 30;
     this.filling = 1;
-    this.R = 255;
-    this.G = 140;
-    this.B = 0;
-    this.spColor = color(R, G, B);
     this.food = new String[] {"Seaweed"};
   
   }
