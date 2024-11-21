@@ -74,15 +74,12 @@ class Animal {
       boolean isFood = false; 
       
       for (String sp : food){
-        
         if(prey.species.equals(sp)){
           if(prey.species.equals("Shark"))
             println(prey.species);
           isFood = true;
           break;
-        
         }
-      
       }
       
       if(!isFood)

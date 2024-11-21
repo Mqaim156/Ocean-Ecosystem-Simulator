@@ -10,6 +10,7 @@ PImage redsnapperImg;
 PImage tunaImg; 
 
 
+<<<<<<< HEAD
 int totalSharks = int(1);
 int totalJellies = int(9);
 int totalClowns = int(15);
@@ -18,6 +19,7 @@ int totalReds = int(15);
 int totalTunas = int(15);
 int totalOctopuses = int(3);
 int totalTurtles = int(3);
+
 ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
 
 ////Import Gui
@@ -65,7 +67,6 @@ void setup() {
 
 
 void draw(){
-
 
   //Create background
   
