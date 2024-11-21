@@ -14,7 +14,7 @@ class Jellyfish extends Animal{
     this.B = 190;
     this.spColor = color(R, G, B);
 
-    this.food = new String[] {"Clownfish", "Redsnapper", "Tuna"};
+    this.food = new String[] {"Seaweed"};
 
   }
 
