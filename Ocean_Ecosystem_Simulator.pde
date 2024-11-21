@@ -80,7 +80,6 @@ void draw(){
     if(allAnimals.get(i).dead == false){
       allAnimals.get(i).drawMe();
       allAnimals.get(i).checkHunger(allAnimals);
-      //println(i);
     }
   }
  
