@@ -18,7 +18,7 @@ class Octopus extends Animal{
   void drawMe(){
     PImage octopusImg;
     octopusImg = loadImage("OctopusImg.png");
-    image(octopusImg,this.pos.x - 45,this.pos.y - 25, 50, 50);
+    image(octopusImg,this.pos.x - 45,this.pos.y + 25, 50, 50);
     
     updatePos();
 

@@ -17,7 +17,7 @@ class Clownfish extends Fish{
   void drawMe(){
     PImage clownfishImg;
     clownfishImg = loadImage("ClownfishImg.png");
-    image(clownfishImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+    image(clownfishImg,this.pos.x - 22,this.pos.y + 13, 25, 25);
 
     
     updatePos();
@@ -43,7 +43,7 @@ class Redsnapper extends Fish{
   void drawMe(){
     PImage redsnapperImg;
     redsnapperImg = loadImage("RedsnapperImg.png");
-    image(redsnapperImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+    image(redsnapperImg,this.pos.x - 22,this.pos.y + 13, 25, 25);
 
     
     updatePos();
@@ -69,7 +69,7 @@ class Tuna extends Fish{
   void drawMe(){
     PImage tunaImg;
     tunaImg = loadImage("TunaImg.png");
-    image(tunaImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+    image(tunaImg,this.pos.x - 22,this.pos.y + 13, 25, 25);
 
     
     updatePos();

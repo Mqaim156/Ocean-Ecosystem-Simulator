@@ -17,7 +17,7 @@ class Shark extends Animal{
 
     PImage sharkImg;
     sharkImg = loadImage("SharkImg.png");
-    image(sharkImg, this.pos.x - 45, this.pos.y - 25, 50, 50);
+    image(sharkImg, this.pos.x - 45, this.pos.y + 25, 50, 50);
 
     updatePos();
 

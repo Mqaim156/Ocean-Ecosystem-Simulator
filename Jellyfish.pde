@@ -19,7 +19,7 @@ class Jellyfish extends Animal{
   void drawMe(){
     PImage jellyfishImg;
     jellyfishImg = loadImage("JellyfishImg.png");
-    image(jellyfishImg,this.pos.x - 25,this.pos.y - 15, 30, 30);
+    image(jellyfishImg,this.pos.x - 25,this.pos.y + 15, 30, 30);
     
     updatePos();
 

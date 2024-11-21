@@ -18,7 +18,7 @@ class Seaweed extends Animal{
   void drawMe(){
     PImage seaweedImg;
     seaweedImg = loadImage("SeaweedImg.png");
-    image(seaweedImg,this.pos.x - 45,this.pos.y - 25, 50, 50);
+    image(seaweedImg,this.pos.x - 45,this.pos.y + 25, 50, 50);
     
     updatePos();
     
