@@ -9,8 +9,6 @@ PImage octopusImg;
 PImage redsnapperImg; 
 PImage tunaImg; 
 
-
-<<<<<<< HEAD
 int totalSharks = int(1);
 int totalJellies = int(9);
 int totalClowns = int(15);
