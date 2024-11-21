@@ -18,9 +18,17 @@ class Shark extends Animal{
 
   void drawMe(){
 
-    //println(this.hunger);
+    //Makes swim right way
+
+    if (this.speed.x > 0){
+    image(sharkImg,this.pos.x - 25,this.pos.y - 25, 50, 50);
+
+    }
     
-    image(sharkImg, this.pos.x - 45, this.pos.y - 25, 50, 50);
+    else{
+    image(sharkRImg,this.pos.x - 25,this.pos.y - 25, 50, 50);
+      
+    }
 
 
     updatePos();

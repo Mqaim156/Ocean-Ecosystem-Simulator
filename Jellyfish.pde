@@ -20,12 +20,18 @@ class Jellyfish extends Animal{
   //Draw me method
 
   void drawMe(){
-    //fill(this.spColor);
-    //circle(this.pos.x, this.pos.y, diameter);
+   
+    //Makes swim right way
 
+    if (this.speed.x > 0){
+    image(jellyfishImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+
+    }
     
-    image(jellyfishImg,this.pos.x - 25,this.pos.y - 15, 30, 30);
-
+    else{
+    image(jellyfishRImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+      
+    }
     
     updatePos();
 

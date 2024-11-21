@@ -9,6 +9,16 @@ PImage octopusImg;
 PImage redsnapperImg; 
 PImage tunaImg; 
 
+//Reverse Images
+PImage clownfishRImg; 
+PImage seaturtleRImg; 
+PImage sharkRImg; 
+PImage jellyfishRImg; 
+PImage seaweedRImg; 
+PImage octopusRImg; 
+PImage redsnapperRImg; 
+PImage tunaRImg; 
+
 int totalSharks = int(1);
 int totalJellies = int(9);
 int totalClowns = int(15);
@@ -36,6 +46,14 @@ void setup() {
   redsnapperImg = loadImage("RedsnapperImg.png");
   seaweedImg = loadImage("SeaweedImg.png");
   clownfishImg = loadImage("ClownfishImg.png");
+  
+  jellyfishRImg = loadImage("JellyfishRImg.png");
+  octopusRImg = loadImage("OctopusRImg.png");
+  sharkRImg = loadImage("SharkRImg.png");
+  seaturtleRImg = loadImage("SeaturtleRImg.png");
+  tunaRImg = loadImage("TunaRImg.png");
+  redsnapperRImg = loadImage("RedsnapperRImg.png");
+  clownfishRImg = loadImage("ClownfishRImg.png");
   
   // Populate the Animal ArrayList
   for (int i = 0; i<totalSharks; i++)

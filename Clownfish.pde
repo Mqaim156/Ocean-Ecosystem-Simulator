@@ -14,13 +14,18 @@ class Clownfish extends Fish{
   //Draw me method
 
   void drawMe(){
+
+    //Makes swim right way
+
+    if (this.speed.x > 0){
+    image(clownfishImg,this.pos.x - 13,this.pos.y - 13, 25, 25);
+
+    }
     
-    //fill(this.spColor);
-    //circle(this.pos.x, this.pos.y, diameter);
-
-
-    image(clownfishImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
-
+    else{
+    image(clownfishRImg,this.pos.x - 13,this.pos.y - 13, 25, 25);
+      
+    }
 
     
     updatePos();
@@ -52,8 +57,18 @@ class Redsnapper extends Fish{
 
   void drawMe(){
     
-    image(redsnapperImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
-    println("a");
+    //Makes swim right way 
+    
+    if (this.speed.x > 0){
+    image(redsnapperImg,this.pos.x - 9,this.pos.y - 9, 18, 18);
+
+    }
+    
+    else{
+    image(redsnapperRImg,this.pos.x - 9,this.pos.y - 9, 18, 18);
+      
+    }
+    
 
     
     updatePos();
@@ -85,7 +100,17 @@ class Tuna extends Fish{
 
   void drawMe(){
 
-    image(tunaImg,this.pos.x - 22,this.pos.y - 13, 35, 35);
+    //Makes swim right way
+    
+    if (this.speed.x > 0){
+    image(tunaImg,this.pos.x - 15,this.pos.y - 15, 30, 30);
+
+    }
+    
+    else{
+    image(tunaRImg,this.pos.x - 15,this.pos.y - 15, 30, 30);
+      
+    }
 
     
     updatePos();

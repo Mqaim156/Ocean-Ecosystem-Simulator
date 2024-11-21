@@ -20,10 +20,17 @@ class Octopus extends Animal{
 
   void drawMe(){
 
-    //fill(this.spColor);
-    //circle(this.pos.x, this.pos.y, diameter);
+    //Makes swim right way
 
-    image(octopusImg,this.pos.x - 45,this.pos.y - 25, 50, 50);
+    if (this.speed.x > 0){
+    image(octopusImg,this.pos.x - 25,this.pos.y - 25, 50, 50);
+
+    }
+    
+    else{
+    image(octopusRImg,this.pos.x - 25,this.pos.y - 25, 50, 50);
+      
+    }
 
     
     updatePos();
