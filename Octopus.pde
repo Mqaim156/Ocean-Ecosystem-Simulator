@@ -14,6 +14,9 @@ class Octopus extends Animal{
     this.G = 203;
     this.B = 164;
     this.spColor = color(R, G, B);
+
+    this.food =  new String[] {"Clownfish", "Tuna", "Redsnapper"};
+
   }
 
   //Methods
@@ -23,34 +26,11 @@ class Octopus extends Animal{
   void drawMe(){
     fill(this.spColor);
     circle(this.pos.x, this.pos.y, diameter);
+    PImage octopusImg;
+    octopusImg = loadImage("OctopusImg.png");
+    image(octopusImg,this.pos.x - 45,this.pos.y - 25, 50, 50);
     
     updatePos();
 
-  ////////WILL BE DONE WITH VISUALS
-
   }
-
- // //Change run method
- // void run(Animal predator){
-  
- //   //Makes sure run the correct way
- //   if (this.pos.x - predator.pos.x >= 0 && this.speed.x <= 0){
- //     this.speed.x *= -1;
-     
- //   }
-   
- //   else if (this.pos.x - predator.pos.x <= 0 && this.speed.x >= 0){
- //     this.speed.x *= -1;
-     
- //   }
-   
- //   //Run fast
- //   this.pos.x += this.speed.x * 4; 
-
- //   //Ink
- //   //////////////////Draw Later
-
- //}
-
-
 }

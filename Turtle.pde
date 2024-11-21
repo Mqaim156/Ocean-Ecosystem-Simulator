@@ -2,8 +2,8 @@ class Turtle extends Animal{
   //Fields
   boolean isDefending = false;
   color spColor;
-  
-  
+
+  int filling;
   
   //Constructor 
   Turtle(int a, int h, PVector s, PVector p){
@@ -15,34 +15,25 @@ class Turtle extends Animal{
     this.G = 128;
     this.B = 0;
     this.spColor = color(R, G, B);
+
+    this.food = new   String[] {"Jellyfish"};
+
   }
 
 
   //Methods
 
-  //Rewrites drawMe
+  //drawMe
 
   void drawMe(){
     //if (isDefending == true){
     fill(this.spColor);
     circle(this.pos.x, this.pos.y, diameter);
+
+    PImage seaturtleImg;
+    seaturtleImg = loadImage("SeaturtleImg.png");
+    image(seaturtleImg,this.pos.x - 55,this.pos.y - 20, 60, 60);
     
     updatePos();
-        //////////Code later with visuals
-    //}
-
-    //else{
-
-        ///////////Code later with visuals
-
-    //}
-
   }
-
-//Method to turn on defence
-  void defend(){
-    isDefending = true;
-
-  }
-
 }

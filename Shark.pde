@@ -14,6 +14,9 @@ class Shark extends Animal{
     this.B = 128;
     this.spColor = color(R, G, B);
 
+    this.food = new String[] {"Clownfish", "Jellyfish", "Octopus", "Turtle", "Redsnapper", "Tuna"};
+
+
   }
 
   //Draw me method
@@ -34,6 +37,12 @@ class Shark extends Animal{
     println(this.speed);
     ////////WILL BE DONE WITH VISUALS
 
-  }
 
+    PImage sharkImg;
+    sharkImg = loadImage("SharkImg.png");
+    image(sharkImg, this.pos.x - 45, this.pos.y - 25, 50, 50);
+
+    updatePos();
+
+  }
 }

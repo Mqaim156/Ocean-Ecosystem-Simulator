@@ -13,6 +13,9 @@ class Jellyfish extends Animal{
     this.G = 0;
     this.B = 190;
     this.spColor = color(R, G, B);
+
+    this.food = new String[] {"Clownfish", "Redsnapper", "Tuna"};
+
   }
 
 
@@ -23,17 +26,12 @@ class Jellyfish extends Animal{
   void drawMe(){
     fill(this.spColor);
     circle(this.pos.x, this.pos.y, diameter);
+
+    PImage jellyfishImg;
+    jellyfishImg = loadImage("JellyfishImg.png");
+    image(jellyfishImg,this.pos.x - 25,this.pos.y - 15, 30, 30);
     
     updatePos();
 
-    ////////WILL BE DONE WITH VISUALS
-
   }
-
-//Method to turn on defence
-  void sting(Animal other){
-    other.health -= 20;
-
-  }
-
 }
