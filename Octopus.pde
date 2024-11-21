@@ -1,9 +1,6 @@
-
 class Octopus extends Animal{
 
-  // Fields
-  color spColor;
-  
+  // Fields  
   
   //Constuctor
   Octopus(int a, int h, PVector s, PVector p){
@@ -11,10 +8,7 @@ class Octopus extends Animal{
     this.food =  new String[] {"Clownfish", "Turtle"};
     this.maxAge = 15;
     this.filling = 4;
-    this.R = 255;
-    this.G = 203;
-    this.B = 164;
-    this.spColor = color(R, G, B);
+
 
     this.food =  new String[] {"Clownfish", "Tuna", "Redsnapper"};
 
