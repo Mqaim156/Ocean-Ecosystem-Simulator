@@ -30,8 +30,8 @@ int totalTurtles = int(3);
 
 ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
 
-////Import Gui
-//import g4p_controls.*;
+//Import Gui
+import g4p_controls.*;
 
 void setup() {
   size(734, 317);

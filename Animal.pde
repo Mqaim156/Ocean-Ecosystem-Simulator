@@ -162,12 +162,12 @@ class Animal {
     
 
 
-  
+  //Updates hunger 
   void updateHunger(){
     int currTime = millis();
     int timeElapsed = currTime - lastHungerUpdated;
     
-    if(timeElapsed >= 10000){
+    if(timeElapsed >= 30000){
       this.hunger += 1;
       
       lastHungerUpdated = currTime;
@@ -202,27 +202,29 @@ class Animal {
     
     //CODE TO CHECK FOR PREDATOR
     if (predatorDis < this.vision && isRunning == false){
-        //Makes fish run faster
+      
+        //Makes fish run away
         isRunning = true;
               
-        this.speed.x *= runSpeed;
-        this.speed.y *= runSpeed;
+        if (this.speed.x <= 0 && predator.speed.x >= 0){
+          this.speed.x *= -1;
+        }
         
+        else if (this.speed.x >= 0 && predator.speed.x <= 0){
+          this.speed.x *= -1; 
+        }
+
+        if (this.speed.y <= 0 && predator.speed.y >= 0){
+          this.speed.y *= -1;
+        }
+        
+        else if (this.speed.x >= 0 && predator.speed.y <= 0){
+          this.speed.y *= -1; 
+        } 
     }
-    
-        //Makes fish stop running
-    if (predatorDis > this.vision + 10 && isRunning == true){
-        isRunning = false; 
-        
-        this.speed.x /= runSpeed;
-        this.speed.y /= runSpeed;
-      }
-    
-    
   }
   
- 
- 
+ //Draw me 
   void drawMe(){
     
   
