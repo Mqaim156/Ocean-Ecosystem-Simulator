@@ -16,9 +16,9 @@ class Seaweed extends Animal{
   //Draw me method
 
   void drawMe(){
-    
-    
+        
     image(seaweedImg,this.pos.x - 45,this.pos.y - 25, 50, 50);
+
     
     updatePos();
     

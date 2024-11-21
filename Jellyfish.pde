@@ -28,8 +28,8 @@ class Jellyfish extends Animal{
     //circle(this.pos.x, this.pos.y, diameter);
 
     
-    
     image(jellyfishImg,this.pos.x - 25,this.pos.y - 15, 30, 30);
+
     
     updatePos();
 

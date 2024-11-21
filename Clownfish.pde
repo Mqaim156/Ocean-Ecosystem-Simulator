@@ -24,9 +24,9 @@ class Clownfish extends Fish{
     //fill(this.spColor);
     //circle(this.pos.x, this.pos.y, diameter);
 
-    
-    
+
     image(clownfishImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+
 
     
     updatePos();
@@ -52,6 +52,7 @@ class Redsnapper extends Fish{
   void drawMe(){
 
     image(redsnapperImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+
 
     
     updatePos();

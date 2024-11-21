@@ -33,6 +33,7 @@ class Turtle extends Animal{
 
 
     image(seaturtleImg,this.pos.x - 55,this.pos.y - 20, 60, 60);
+
     
     updatePos();
   }

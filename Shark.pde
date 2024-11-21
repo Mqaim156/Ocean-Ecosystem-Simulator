@@ -40,6 +40,7 @@ class Shark extends Animal{
 
     image(sharkImg, this.pos.x - 45, this.pos.y - 25, 50, 50);
 
+
     updatePos();
 
   }
