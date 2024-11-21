@@ -1,17 +1,19 @@
 class Animal {
   //Fields
-  int age, hunger, vision, reproduction;
+  int age, hunger, vision, reproduction, R, G, B;
   String species;
   PVector speed, pos;
   boolean dead = false;
   int health = 100;
   boolean beingHunt = false;
   int diameter;
-  int filling = 0;
+  int filling;
   int lastHungerUpdated = 0;
   String[] food = {};
   boolean isFood;
   boolean isRunning = false;
+  int maxAge;
+  int lastAgeUpdated = 0;
 
   
   //Constructor
@@ -31,18 +33,26 @@ class Animal {
     
   }
   
-  //Methods
+  // CHECK METHODS
+  void checkAge(){
+    
+    if (this.age >= maxAge)
+      this.die();
+      
+    updateAge();
+
+    
+  }
+  
+  // EATING METHODS
   //check Hunger
   void checkHunger(ArrayList<Animal> preys){
 
-    if (this.hunger < 6) {
-      rest();
-    }
-    
-    else {
-      //println("going to hunt");
+    if (this.hunger > 6) {
       hunt(preys);    
     }
+    
+    updateHunger();
   } 
  
 
@@ -96,16 +106,15 @@ class Animal {
   }
  
  
-//Chase method
+  //Chase method
   void chase(Animal prey) {
-    
     
     PVector direction =  PVector.sub(prey.pos, this.pos);
     
     direction.normalize();
     
-    float currSpeed = 1.5;
-    speed = direction.mult(currSpeed);
+    float currSpeed = speed.mag();
+    speed = direction.copy().mult(currSpeed);
     
     prey.run(this);
     
@@ -117,43 +126,53 @@ class Animal {
     
   }
   
-//Update position methods
-  void updatePos(){
-  
-    pos.add(speed);
-    
-    //deadYet();
-    
-    checkBorderCollision();
-    
-    updateHunger();
-    
-  }
-  
-  
-
-  // check whether the animal is dead or not
-  //void deadYet(){};
-    
-
   //Eating method
   void eat( Animal prey ) {
     
     prey.die();
     
+    // filling the predator
     float factor = 1; // for now 1
-    float predFilling = ((prey.diameter/this.diameter) * prey.filling ) * factor; // random formula to check how much the prey will fill the predator
+    float predFilling = ((float)prey.diameter/this.diameter) * prey.filling * factor; // random formula to check how much the prey will fill the predator
+    println(this.species, " was filled: ", predFilling);
     this.hunger -= predFilling;
-    
-    
-   
+ 
   }
+  
+  // UPDATE METHODS
+  void updatePos(){
+  
+    pos.add(speed);
+    
+    checkBorderCollision();
+    
+    checkAge();    
+        
+  }
+  
+
+  // update the Animal's age every 15 seconds
+  void updateAge(){
+    
+    // check how much time has it been since the last time the age was updated
+    int ageCurrTime = millis();
+    int ageTimeElapsed = ageCurrTime - lastAgeUpdated;
+    
+    if(ageTimeElapsed >= 15000){
+      this.age += 1;
+      this.vision = this.age * 10;
+      lastAgeUpdated = ageCurrTime;
+    }
+  };
+    
+
+
   
   void updateHunger(){
     int currTime = millis();
     int timeElapsed = currTime - lastHungerUpdated;
     
-    if(timeElapsed >= 5000){
+    if(timeElapsed >= 10000){
       this.hunger += 1;
       
       lastHungerUpdated = currTime;
@@ -163,8 +182,6 @@ class Animal {
     }
     
   }
-  
- 
  
   //Dying method
   void die(){
@@ -226,8 +243,8 @@ class Animal {
     else if(this.pos.y > (height - diameter/2)){
       this.speed.y *= -1;
       this.pos.y = height - diameter/2; // Prevent overlap
- 
     }  
+    
     // check left wall
     if(this.pos.x < diameter/2){ 
       this.speed.x = abs(this.speed.x); 

@@ -1,11 +1,19 @@
 class Shark extends Animal{
 
   // Fields
-  color spColor = color(128,128,128); 
+  color spColor; 
+  
   
   //Constuctor
   Shark(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Shark", 35); // change the 10 for vision and rep rate
+    this.food = new String[] {"Clownfish", "Jellyfish", "Octopus", "Turtle", "Shark"};
+    this.maxAge = 20;
+    this.R = 128;
+    this.G = 128;
+    this.B = 128;
+    this.spColor = color(R, G, B);
+
     this.food = new String[] {"Clownfish", "Jellyfish", "Octopus", "Turtle", "Redsnapper", "Tuna"};
 
 
@@ -14,6 +22,21 @@ class Shark extends Animal{
   //Draw me method
 
   void drawMe(){
+    
+    
+    fill(this.spColor);
+    circle(this.pos.x, this.pos.y, diameter);
+    
+    updatePos();
+    //println(this.age);
+    
+    // vision radius
+    noFill();
+    circle(this.pos.x, this.pos.y, vision);
+    
+    println(this.speed);
+    ////////WILL BE DONE WITH VISUALS
+
 
     PImage sharkImg;
     sharkImg = loadImage("SharkImg.png");
