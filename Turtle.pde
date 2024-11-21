@@ -1,14 +1,20 @@
 class Turtle extends Animal{
   //Fields
   boolean isDefending = false;
-  color spColor = color(128,128,0);
-  int filling = 3;
+  color spColor;
+  
+  
   
   //Constructor 
   Turtle(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Turtle", 20);
-    this.food = new   String[] {"Seaweed"};
-
+    this.food = new String[] {"Seaweed"};
+    this.maxAge = 50;
+    this.filling = 3;
+    this.R = 128;
+    this.G = 128;
+    this.B = 0;
+    this.spColor = color(R, G, B);
   }
 
 
@@ -18,7 +24,7 @@ class Turtle extends Animal{
 
   void drawMe(){
     //if (isDefending == true){
-    fill(spColor);
+    fill(this.spColor);
     circle(this.pos.x, this.pos.y, diameter);
     
     updatePos();
