@@ -1,4 +1,14 @@
-int totalAnimals = 100;
+int totalAnimals = 30;
+PImage coralReef;
+PImage clownfishImg; 
+PImage seaturtleImg; 
+PImage sharkImg; 
+PImage jellyfishImg; 
+PImage seaweedImg; 
+PImage octopusImg; 
+PImage redsnapperImg; 
+PImage tunaImg; 
+
 
 int totalSharks = int(0.05 * totalAnimals);
 int totalJellies = int(0.1 * totalAnimals);
@@ -8,7 +18,6 @@ int totalReds = int(0.10 * totalAnimals);
 int totalTunas = int(0.05 * totalAnimals);
 int totalOctopuses = int(0.1 * totalAnimals);
 int totalTurtles= int(0.1 * totalAnimals);
-
 ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
 
 ////Import Gui
@@ -16,11 +25,21 @@ ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
 
 void setup() {
   size(734, 317);
+  frameRate(30);
   //createGUI();
+  coralReef = loadImage("CoralReef.jpg");
+  jellyfishImg = loadImage("JellyfishImg.png");
+  octopusImg = loadImage("OctopusImg.png");
+  sharkImg = loadImage("SharkImg.png");
+  seaturtleImg = loadImage("SeaturtleImg.png");
+  tunaImg = loadImage("TunaImg.png");
+  redsnapperImg = loadImage("RedsnapperImg.png");
+  seaweedImg = loadImage("SeaweedImg.png");
+  clownfishImg = loadImage("ClownfishImg.png");
   
   // Populate the Animal ArrayList
   for (int i = 0; i<totalSharks; i++)
-    allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 10)) , new PVector(random(-1.5, 1.5), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
+    allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 8)) , new PVector(random(-1.5, 1.5), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
 
   for (int i = 0; i<totalJellies; i++)
     allAnimals.add( new Jellyfish( int(random(1, 5)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width/2), random(height) ) ));
@@ -42,22 +61,19 @@ void setup() {
 
   for (int i = 0; i<totalTurtles; i++)
     allAnimals.add( new Turtle( int(random(3, 40)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width), random(height/2, height) ) ));
-
-  //println(allAnimals.size());
 }
 
 
 void draw(){
   
-  background(255);
+  //2background(255);
 
   //Create background
   
   //tint(255,100); ///// Un comment line to remove after image 
-  
-  PImage coralReef;
-  coralReef = loadImage("CoralReef.jpg");
+
   image(coralReef,1,1);
+
   
   //tint(255,255);///// Un comment line to remove after image 
   

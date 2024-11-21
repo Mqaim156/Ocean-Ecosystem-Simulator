@@ -1,3 +1,4 @@
+
 class Shark extends Animal{
 
   // Fields
@@ -24,22 +25,19 @@ class Shark extends Animal{
   void drawMe(){
     
     
-    fill(this.spColor);
-    circle(this.pos.x, this.pos.y, diameter);
+    //fill(this.spColor);
+    //circle(this.pos.x, this.pos.y, diameter);
     
-    updatePos();
-    //println(this.age);
+    //updatePos();
+    ////println(this.age);
     
-    // vision radius
-    noFill();
-    circle(this.pos.x, this.pos.y, vision);
+    //// vision radius
+    //noFill();
+    //circle(this.pos.x, this.pos.y, vision);
     
-    println(this.speed);
+    //println(this.hunger);
     ////////WILL BE DONE WITH VISUALS
 
-
-    PImage sharkImg;
-    sharkImg = loadImage("SharkImg.png");
     image(sharkImg, this.pos.x - 45, this.pos.y - 25, 50, 50);
 
     updatePos();

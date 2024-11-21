@@ -24,11 +24,11 @@ class Jellyfish extends Animal{
   //Draw me method
 
   void drawMe(){
-    fill(this.spColor);
-    circle(this.pos.x, this.pos.y, diameter);
+    //fill(this.spColor);
+    //circle(this.pos.x, this.pos.y, diameter);
 
-    PImage jellyfishImg;
-    jellyfishImg = loadImage("JellyfishImg.png");
+    
+    
     image(jellyfishImg,this.pos.x - 25,this.pos.y - 15, 30, 30);
     
     updatePos();

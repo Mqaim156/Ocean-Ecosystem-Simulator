@@ -67,17 +67,14 @@ class Animal {
     
     for(Animal prey : preys){
       if(prey.dead || prey == this) {
-        //println("cannot eat this");
         continue;  
       }
         
       
       boolean isFood = false; 
-      //println("dsadfasfs");
       
       for (String sp : food){
         
-        //println("species: ", sp);
         if(prey.species.equals(sp)){
           isFood = true;
           break;
@@ -99,7 +96,6 @@ class Animal {
     }
    
     if(nearestPrey != null)
-      //println("chasing");
       chase(nearestPrey);
       
     

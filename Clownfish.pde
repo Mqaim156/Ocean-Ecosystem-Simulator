@@ -1,3 +1,4 @@
+
 class Clownfish extends Fish{
   
   // Fields
@@ -20,11 +21,11 @@ class Clownfish extends Fish{
 
   void drawMe(){
     
-    fill(this.spColor);
-    circle(this.pos.x, this.pos.y, diameter);
+    //fill(this.spColor);
+    //circle(this.pos.x, this.pos.y, diameter);
 
-    PImage clownfishImg;
-    clownfishImg = loadImage("ClownfishImg.png");
+    
+    
     image(clownfishImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
 
     
@@ -49,8 +50,7 @@ class Redsnapper extends Fish{
   //Draw me method
 
   void drawMe(){
-    PImage redsnapperImg;
-    redsnapperImg = loadImage("RedsnapperImg.png");
+
     image(redsnapperImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
 
     
@@ -75,8 +75,7 @@ class Tuna extends Fish{
   //Draw me method
 
   void drawMe(){
-    PImage tunaImg;
-    tunaImg = loadImage("TunaImg.png");
+
     image(tunaImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
 
     

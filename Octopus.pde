@@ -1,3 +1,4 @@
+
 class Octopus extends Animal{
 
   // Fields
@@ -24,10 +25,9 @@ class Octopus extends Animal{
   //Draw me method
 
   void drawMe(){
-    fill(this.spColor);
-    circle(this.pos.x, this.pos.y, diameter);
-    PImage octopusImg;
-    octopusImg = loadImage("OctopusImg.png");
+    //fill(this.spColor);
+    //circle(this.pos.x, this.pos.y, diameter);
+
     image(octopusImg,this.pos.x - 45,this.pos.y - 25, 50, 50);
     
     updatePos();
