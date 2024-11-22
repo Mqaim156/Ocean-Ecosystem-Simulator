@@ -37,4 +37,18 @@ class Octopus extends Animal{
     updatePos();
 
   }
+  void spawn(){
+    
+    int babyAge = 3;
+    int babyHunger = 0;
+    float babySpeedX = this.speed.x*0.5;
+    PVector babySpeed = new PVector(babySpeedX, this.speed.y);
+    PVector babyPos = new PVector(this.pos.x, this.pos.y+15);
+
+    Octopus babyOcto = new Octopus(babyAge, babyHunger, OctopusVision, OctopusReproduction, babySpeed, babyPos);
+    allAnimals.add(babyOcto);
+    totalAnimals += 1;
+    println("CLOWNFISH SPAWNNED");
+    
+  }
 }

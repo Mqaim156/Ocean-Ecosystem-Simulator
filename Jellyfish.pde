@@ -36,4 +36,17 @@ class Jellyfish extends Animal{
     updatePos();
 
   }
+  void spawn(){
+    
+    int babyAge = 3;
+    int babyHunger = 0;
+    float babySpeedX = this.speed.x*0.5;
+    PVector babySpeed = new PVector(babySpeedX, this.speed.y);
+    PVector babyPos = new PVector(this.pos.x, this.pos.y+15);
+
+    Jellyfish babyJelly = new Jellyfish(babyAge, babyHunger, JellyfishVision, JellyfishReproduction, babySpeed, babyPos);
+    allAnimals.add(babyJelly);
+    totalAnimals += 1;
+    
+  }
 }

@@ -37,4 +37,18 @@ class Turtle extends Animal{
     
     updatePos();
   }
+  
+  void spawn(){
+    
+    int babyAge = 3;
+    int babyHunger = 0;
+    float babySpeedX = this.speed.x*0.5;
+    PVector babySpeed = new PVector(babySpeedX, this.speed.y);
+    PVector babyPos = new PVector(this.pos.x, this.pos.y+15);
+
+    Turtle babyTurtle = new Turtle(babyAge, babyHunger, TurtleVision, TurtleReproduction, babySpeed, babyPos);
+    allAnimals.add(babyTurtle);
+    totalAnimals += 1;
+    
+  }
 }

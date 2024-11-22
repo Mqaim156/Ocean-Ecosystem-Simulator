@@ -176,7 +176,7 @@ public void createGUI(){
   SharkVisionSlider.setOpaque(false);
   SharkVisionSlider.addEventHandler(this, "SharkVisionSliderChanged");
   SharkReproductionSlider = new GCustomSlider(window1, 10, 130, 100, 40, "grey_blue");
-  SharkReproductionSlider.setLimits(1, 1, 5);
+  SharkReproductionSlider.setLimits(2, 1, 5);
   SharkReproductionSlider.setNbrTicks(5);
   SharkReproductionSlider.setNumberFormat(G4P.INTEGER, 0);
   SharkReproductionSlider.setOpaque(false);
@@ -188,7 +188,7 @@ public void createGUI(){
   TurtleVisionSlider.setOpaque(false);
   TurtleVisionSlider.addEventHandler(this, "TurtleVisionSliderChanged");
   TurtleReproductionSlider = new GCustomSlider(window1, 120, 130, 100, 40, "grey_blue");
-  TurtleReproductionSlider.setLimits(1, 1, 5);
+  TurtleReproductionSlider.setLimits(2, 1, 5);
   TurtleReproductionSlider.setNbrTicks(5);
   TurtleReproductionSlider.setNumberFormat(G4P.INTEGER, 0);
   TurtleReproductionSlider.setOpaque(false);
@@ -200,7 +200,7 @@ public void createGUI(){
   OctopusVisionSlider.setOpaque(false);
   OctopusVisionSlider.addEventHandler(this, "OctopusVisionSliderChanged");
   OctopusReproductionSlider = new GCustomSlider(window1, 230, 130, 100, 40, "grey_blue");
-  OctopusReproductionSlider.setLimits(1, 1, 5);
+  OctopusReproductionSlider.setLimits(2, 1, 5);
   OctopusReproductionSlider.setNbrTicks(5);
   OctopusReproductionSlider.setNumberFormat(G4P.INTEGER, 0);
   OctopusReproductionSlider.setOpaque(false);
@@ -212,7 +212,7 @@ public void createGUI(){
   JellyfishVisionSlider.setOpaque(false);
   JellyfishVisionSlider.addEventHandler(this, "JellyfishVisionSliderChanged");
   JellyfishReproductionSlider = new GCustomSlider(window1, 340, 130, 100, 40, "grey_blue");
-  JellyfishReproductionSlider.setLimits(1, 1, 5);
+  JellyfishReproductionSlider.setLimits(2, 1, 5);
   JellyfishReproductionSlider.setNbrTicks(5);
   JellyfishReproductionSlider.setNumberFormat(G4P.INTEGER, 0);
   JellyfishReproductionSlider.setOpaque(false);
@@ -224,7 +224,7 @@ public void createGUI(){
   FishVisionSlider.setOpaque(false);
   FishVisionSlider.addEventHandler(this, "FishVisionSliderChanged");
   FishReproductionSlider = new GCustomSlider(window1, 450, 130, 100, 40, "grey_blue");
-  FishReproductionSlider.setLimits(1, 1, 5);
+  FishReproductionSlider.setLimits(2, 1, 5);
   FishReproductionSlider.setNbrTicks(5);
   FishReproductionSlider.setNumberFormat(G4P.INTEGER, 0);
   FishReproductionSlider.setOpaque(false);

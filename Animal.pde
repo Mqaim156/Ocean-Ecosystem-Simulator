@@ -1,6 +1,7 @@
 class Animal {
   //Fields
-  int age, hunger, vision, reproduction, R, G, B;
+  int age, hunger, vision, R, G, B;
+  int reproduction;
   String species;
   PVector speed, pos;
   boolean dead = false;
@@ -158,7 +159,7 @@ class Animal {
     int ageCurrTime = millis();
     int ageTimeElapsed = ageCurrTime - lastAgeUpdated;
     
-    if(ageTimeElapsed >= 15000){
+    if(ageTimeElapsed >= 10000){
       this.age += 1;
       this.vision = this.age * 10;
       lastAgeUpdated = ageCurrTime;
@@ -171,7 +172,7 @@ class Animal {
     int breedCurrTime = millis();
     int breedTimeElapsed = breedCurrTime - lastBreedUpdated;
     //println(breedTimeElapsed);
-    if(this.age > (maxAge - 10) && breedTimeElapsed >= 5000 && (!this.dead)){
+    if(this.reproduction > 0 && this.age > (maxAge - (5*this.reproduction)) && breedTimeElapsed >= (20000/this.reproduction) && (!this.dead)){
       spawn();
       lastBreedUpdated = breedCurrTime;
       //println("GOING TO SPAWN");
@@ -189,7 +190,7 @@ class Animal {
     int timeElapsed = currTime - lastHungerUpdated;
     
     //After time updates hunger
-    if(timeElapsed >= 30000){
+    if(timeElapsed >= 15000){
       this.hunger += 1;
       
       lastHungerUpdated = currTime;

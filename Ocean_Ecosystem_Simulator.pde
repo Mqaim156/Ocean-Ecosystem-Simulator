@@ -41,7 +41,6 @@ int OctopusReproduction;
 int JellyfishReproduction;
 int FishReproduction;
 
-
 float totalFish;
 float totalSharks;
 float totalJellies;
@@ -133,7 +132,7 @@ void reset(){
     allAnimals.add( new Octopus( int(random(1, 7)), int(random(1, 2)) , OctopusVision, OctopusReproduction, new PVector(OctopusSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
 
   for (int i = 0; i<totalSeaweed; i++)
-    allAnimals.add( new Seaweed( int(random(1, 15)), int(random(1, 2)), new PVector( random(width), height ) ));
+    allAnimals.add( new Seaweed( int(random(1, 15)), int(random(1, 2)), 10, new PVector( random(width), height ) ));
 
   for (int i = 0; i<totalTurtles; i++)
     allAnimals.add( new Turtle( int(random(3, 40)), int(random(1, 2)) , TurtleVision, TurtleReproduction, new PVector(OctopusSpeed, random(-1, 1)), new PVector( random(width), random(height/2, height) ) ));
@@ -154,7 +153,7 @@ void draw(){
         }
       }
     }
-    println(allAnimals.size());
+    //println(allAnimals.size());
   }
   else{
    reseted = false;
