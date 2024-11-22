@@ -1,4 +1,3 @@
-int totalAnimals = 111;
 PImage coralReef;
 PImage clownfishImg; 
 PImage seaturtleImg; 
@@ -8,6 +7,8 @@ PImage seaweedImg;
 PImage octopusImg; 
 PImage redsnapperImg; 
 PImage tunaImg; 
+
+boolean paused = false;
 
 //Reverse Images
 PImage clownfishRImg; 
@@ -19,21 +20,51 @@ PImage octopusRImg;
 PImage redsnapperRImg; 
 PImage tunaRImg; 
 
-int totalSharks = int(1);
-int totalJellies = int(9);
-int totalClowns = int(15);
-int totalWeed = int(50);
-int totalReds = int(15);
-int totalTunas = int(15);
-int totalOctopuses = int(3);
-int totalTurtles = int(3);
+//Varibles
+int SharkSpeed;
+int TurtleSpeed;
+int OctopusSpeed;
+int JellyfishSpeed;
+int FishSpeed;
 
+int SharkVision;
+int TurtleVision;
+int OctopusVision;
+int JellyfishVision;
+int FishVision;
+
+int SharkReproduction;
+int TurtleReproduction;
+int OctopusReproduction;
+int JellyfishReproduction;
+int FishReproduction;
+
+
+float totalFish;
+float totalSharks;
+float totalJellies;
+int totalSeaweed;
+//Spliting the totalFish
+int totalReds = int(totalFish/3);
+int totalTunas = int(totalFish/3);
+int totalClowns = int(totalFish) - totalReds - totalTunas;
+float totalOctopuses;
+float totalTurtles;
+float totalAnimals = totalSharks + totalJellies + totalClowns + totalSeaweed + totalReds + totalTunas + totalOctopuses + totalTurtles;
 ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
+
 
 //Import Gui
 import g4p_controls.*;
 
 void setup() {
+  
+  println(totalJellies);
+  totalAnimals = int(totalAnimals);
+  
+  //Create gui
+  createGUI();
+  
   size(734, 317);
   frameRate(30);
   //createGUI();
@@ -54,51 +85,53 @@ void setup() {
   tunaRImg = loadImage("TunaRImg.png");
   redsnapperRImg = loadImage("RedsnapperRImg.png");
   clownfishRImg = loadImage("ClownfishRImg.png");
+ 
+  reset();
   
-  // Populate the Animal ArrayList
-  for (int i = 0; i<totalSharks; i++)
-    allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 3)) , new PVector(random(-1.5, 1.5), random(-1, 1)), new PVector( random(width), random(height) ) ));
-
-  for (int i = 0; i<totalJellies; i++)
-    allAnimals.add( new Jellyfish( int(random(1, 5)), int(random(1, 2)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width), random(height) ) ));
-
-  for (int i = 0; i<totalClowns; i++)
-    allAnimals.add( new Clownfish( int(random(1, 5)), int(random(1, 2)) , new PVector(random(-2, 2), random(-1, 1)), new PVector( random(width), random(height) ) ));
-    
-  for (int i = 0; i<totalReds; i++)
-    allAnimals.add( new Redsnapper( int(random(3, 28)), int(random(1, 2)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width), random(height) ) ));
-    
-  for (int i = 0; i<totalTunas; i++)
-    allAnimals.add( new Tuna( int(random(3, 28)), int(random(1, 2)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width), random(height) ) ));
-    
-  for (int i = 0; i<totalOctopuses; i++)
-    allAnimals.add( new Octopus( int(random(1, 7)), int(random(1, 2)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width), random(height) ) ));
-
-  for (int i = 0; i<totalWeed; i++)
-    allAnimals.add( new Seaweed( int(random(1, 15)), int(random(1, 2)), new PVector( random(width), height ) ));
-
-  for (int i = 0; i<totalTurtles; i++)
-    allAnimals.add( new Turtle( int(random(3, 40)), int(random(1, 2)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width), random(height/2, height) ) ));
 }
 
 
+void reset(){
+  allAnimals.clear();
+  
+  // Populate the Animal ArrayList
+  for (int i = 0; i<totalSharks; i++)
+    allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 3)) , SharkVision, SharkReproduction, new PVector(SharkSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+
+  for (int i = 0; i<totalJellies; i++)
+    allAnimals.add( new Jellyfish( int(random(1, 5)), int(random(1, 2)) , JellyfishVision, JellyfishReproduction, new PVector(JellyfishSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+
+  for (int i = 0; i<totalClowns; i++)
+    allAnimals.add( new Clownfish( int(random(1, 5)), int(random(1, 2)) , FishVision, FishReproduction, new PVector(FishSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+    
+  for (int i = 0; i<totalReds; i++)
+    allAnimals.add( new Redsnapper( int(random(3, 28)), int(random(1, 2)) , FishVision, FishReproduction, new PVector(FishSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+    
+  for (int i = 0; i<totalTunas; i++)
+    allAnimals.add( new Tuna( int(random(3, 28)), int(random(1, 2)) , FishVision, FishReproduction, new PVector(FishSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+    
+  for (int i = 0; i<totalOctopuses; i++)
+    allAnimals.add( new Octopus( int(random(1, 7)), int(random(1, 2)) , OctopusVision, OctopusReproduction, new PVector(OctopusSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+
+  for (int i = 0; i<totalSeaweed; i++)
+    allAnimals.add( new Seaweed( int(random(1, 15)), int(random(1, 2)), new PVector( random(width), height ) ));
+
+  for (int i = 0; i<totalTurtles; i++)
+    allAnimals.add( new Turtle( int(random(3, 40)), int(random(1, 2)) , TurtleVision, TurtleReproduction, new PVector(OctopusSpeed, random(-1, 1)), new PVector( random(width), random(height/2, height) ) ));
+  
+}
+
 void draw(){
 
-  //Create background
+  if (paused == false){
+    //Create background
+    image(coralReef,1,1);
   
-  //tint(255,100); ///// Un comment line to remove after image 
-
-  image(coralReef,1,1);
-
-  
-  //tint(255,255);///// Un comment line to remove after image 
-  
-  for (int i=0; i<totalAnimals; i++){
-    if(allAnimals.get(i).dead == false){
-      allAnimals.get(i).drawMe();
-      allAnimals.get(i).checkHunger(allAnimals);
+    for (int i=0; i<totalAnimals; i++){
+      if(allAnimals.get(i).dead == false){
+        allAnimals.get(i).drawMe();
+        allAnimals.get(i).checkHunger(allAnimals);
+      }
     }
   }
- 
-
 }

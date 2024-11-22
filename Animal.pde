@@ -85,6 +85,7 @@ class Animal {
       if(!isFood)
         continue;
       
+      //Checks distance
       float distance =  PVector.dist(this.pos, prey.pos);
       
       if(distance < vision && distance < minDist) {
@@ -108,9 +109,11 @@ class Animal {
     
     direction.normalize();
     
+    //Speeds up
     float currSpeed = speed.mag();
     speed = direction.copy().mult(currSpeed);
     
+    //makes prey run
     prey.run(this);
     
     updatePos();
@@ -167,6 +170,7 @@ class Animal {
     int currTime = millis();
     int timeElapsed = currTime - lastHungerUpdated;
     
+    //After time updates hunger
     if(timeElapsed >= 30000){
       this.hunger += 1;
       

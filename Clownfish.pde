@@ -3,8 +3,8 @@ class Clownfish extends Fish{
   // Fields
   
   //Constuctor
-  Clownfish(int a, int h, PVector s, PVector p){
-    super(a, h, s, p, a*10, a*10, "Clownfish", 18);
+  Clownfish(int a, int h, int v, int r, PVector s, PVector p){
+    super(a, h, s, p, v, r, "Clownfish", 18);
     this.maxAge = 30;
     this.filling = 1;
     this.food = new String[] {"Seaweed"};
@@ -41,8 +41,8 @@ class Redsnapper extends Fish{
   
   
   //Constuctor
-  Redsnapper(int a, int h, PVector s, PVector p){
-    super(a, h, s, p, a*10, a*10, "Redsnapper", 18);
+  Redsnapper(int a, int h, int v, int r, PVector s, PVector p){
+    super(a, h, s, p, v, r, "Redsnapper", 18);
     this.maxAge = 30;
     this.filling = 1;
     this.R = 255;
@@ -84,8 +84,8 @@ class Tuna extends Fish{
   
   
   //Constuctor
-  Tuna(int a, int h, PVector s, PVector p){
-    super(a, h, s, p, a*10, a*10, "Tuna", 18);
+  Tuna(int a, int h, int v, int r, PVector s, PVector p){
+    super(a, h, s, p, v, r, "Tuna", 18);
     this.maxAge = 30;
     this.filling = 1;
     this.R = 255;

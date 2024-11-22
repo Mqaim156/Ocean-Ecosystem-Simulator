@@ -3,8 +3,8 @@ class Octopus extends Animal{
   // Fields  
   
   //Constuctor
-  Octopus(int a, int h, PVector s, PVector p){
-    super(a, h, s, p, a*10, a*10, "Octopus", 30);
+  Octopus(int a, int h, int v, int r, PVector s, PVector p){
+    super(a, h, s, p, v, r, "Octopus", 30);
     this.food =  new String[] {"Clownfish", "Turtle"};
     this.maxAge = 40;
     this.filling = 4;

@@ -4,8 +4,8 @@ class Shark extends Animal{
   // Fields  
   
   //Constuctor
-  Shark(int a, int h, PVector s, PVector p){
-    super(a, h, s, p, a*10, a*10, "Shark", 35); // change the 10 for vision and rep rate
+  Shark(int a, int h, int v, int r, PVector s, PVector p){
+    super(a, h, s, p, v, r, "Shark", 35); // change the 10 for vision and rep rate
     this.food = new String[] {"Clownfish", "Jellyfish", "Octopus", "Turtle", "Shark"};
     this.maxAge = 30;
 

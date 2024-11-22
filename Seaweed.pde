@@ -24,7 +24,6 @@ class Seaweed extends Animal{
   }
 
   //Eating method
-
   void eat(){
     this.hunger += 1;
     
