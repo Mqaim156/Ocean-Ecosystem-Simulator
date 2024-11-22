@@ -10,8 +10,8 @@ PImage redsnapperImg;
 PImage tunaImg; 
 
 
-int totalSharks = int(0.1 * totalAnimals);
-int totalJellies = int(0.1 * totalAnimals);
+int totalSharks = int(0.05 * totalAnimals);
+int totalJellies = int(0.2 * totalAnimals);
 int totalClowns = int(0.1 * totalAnimals);
 int totalWeed = int(0.3 * totalAnimals);
 int totalReds = int(0.1 * totalAnimals);
@@ -40,7 +40,7 @@ void setup() {
   
   // Populate the Animal ArrayList
   for (int i = 0; i<totalSharks; i++)
-    allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 8)) , new PVector(random(-1.5, 1.5), random(-1, 1)), new PVector( random(width), random(height) ) ));
+    allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 6)) , new PVector(random(-1.5, 1.5), random(-1, 1)), new PVector( random(width), random(height) ) ));
 
   for (int i = 0; i<totalJellies; i++)
     allAnimals.add( new Jellyfish( int(random(1, 5)), int(random(1, 6)) , new PVector(random(-1, 1), random(-1, 1)), new PVector( random(width), random(height) ) ));
@@ -80,6 +80,7 @@ void draw(){
       allAnimals.get(i).drawMe();
       allAnimals.get(i).checkHunger(allAnimals);
     }
+    println(allAnimals.size());
   }
  
 

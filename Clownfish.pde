@@ -5,7 +5,7 @@ class Clownfish extends Fish{
   //Constuctor
   Clownfish(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Clownfish", 18);
-    this.maxAge = 8;
+    this.maxAge = 15;
     this.filling = 1;
     this.food = new String[] {"Seaweed"};
   
@@ -15,15 +15,25 @@ class Clownfish extends Fish{
 
   void drawMe(){
     
-    //fill(this.spColor);
-    //circle(this.pos.x, this.pos.y, diameter);
-
-
+    //println("I am Being Drawn");
     image(clownfishImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
 
-
-    
     updatePos();
+  }
+  
+  void spawn(){
+    
+    int babyAge = 3;
+    int babyHunger = 0;
+    float babySpeedX = this.speed.x*0.5;
+    PVector babySpeed = new PVector(babySpeedX, this.speed.y);
+    PVector babyPos = new PVector(this.pos.x, this.pos.y+15);
+
+    Clownfish babyClown = new Clownfish(babyAge, babyHunger, babySpeed, babyPos);
+    allAnimals.add(babyClown);
+    totalAnimals += 1;
+    println("CLOWNFISH SPAWNNED");
+    
   }
 }
 

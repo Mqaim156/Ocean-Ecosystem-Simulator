@@ -6,7 +6,7 @@ class Jellyfish extends Animal{
   Jellyfish(int a, int h, PVector s, PVector p){
     super(a, h, s, p, a*10, a*10, "Jellyfish", 23);
     this.food = new String[] {"Seaweed", "Clownfish"};
-    this.maxAge = 10;
+    this.maxAge = 20;
     this.filling = 3;
 
 

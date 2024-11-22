@@ -6,7 +6,7 @@ class Seaweed extends Animal{
   Seaweed(int a, int h, PVector p){
     super(a, h, new PVector(0,0), p, a*10, a*10, "Seaweed", 10); // zero is the velocity since they dont move
     this.food = new String[] {""};
-    this.maxAge = 20;
+    this.maxAge = 30;
     this.filling = 1;
   }
 
