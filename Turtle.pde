@@ -6,8 +6,8 @@ class Turtle extends Animal{
   int filling;
   
   //Constructor 
-  Turtle(int a, int h, PVector s, PVector p){
-    super(a, h, s, p, a*10, a*10, "Turtle", 20);
+  Turtle(int a, int h, int v, int r, PVector s, PVector p){
+    super(a, h, s, p, v, r, "Turtle", 20);
     this.food = new String[] {"Seaweed"};
     this.maxAge = 60;
     this.filling = 3;
@@ -23,8 +23,17 @@ class Turtle extends Animal{
 
   void drawMe(){
 
-    image(seaturtleImg, this.pos.x - 55,this.pos.y - 20, 60, 60);
+    //Makes swim right way
 
+    if (this.speed.x > 0){
+    image(seaturtleImg,this.pos.x - 30,this.pos.y - 30, 60, 60);
+
+    }
+    
+    else{
+    image(seaturtleRImg,this.pos.x - 30,this.pos.y - 30, 60, 60);
+      
+    }
     
     updatePos();
   }

@@ -3,14 +3,14 @@ class Jellyfish extends Animal{
   //Fields
   
   //Constructor 
-  Jellyfish(int a, int h, PVector s, PVector p){
-    super(a, h, s, p, a*10, a*10, "Jellyfish", 23);
+  Jellyfish(int a, int h, int v, int r, PVector s, PVector p){
+    super(a, h, s, p, v, r, "Jellyfish", 23);
     this.food = new String[] {"Seaweed", "Clownfish"};
-    this.maxAge = 20;
+    this.maxAge = 30;
     this.filling = 3;
 
 
-    this.food = new String[] {"Clownfish", "Redsnapper", "Tuna"};
+    this.food = new String[] {"Seaweed"};
 
   }
 
@@ -20,12 +20,18 @@ class Jellyfish extends Animal{
   //Draw me method
 
   void drawMe(){
-    //fill(this.spColor);
-    //circle(this.pos.x, this.pos.y, diameter);
+   
+    //Makes swim right way
 
+    if (this.speed.x > 0){
+    image(jellyfishImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+
+    }
     
-    image(jellyfishImg,this.pos.x - 25,this.pos.y - 15, 30, 30);
-
+    else{
+    image(jellyfishRImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
+      
+    }
     
     updatePos();
 
