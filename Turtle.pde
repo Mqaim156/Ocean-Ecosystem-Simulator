@@ -9,7 +9,7 @@ class Turtle extends Animal{
   Turtle(int a, int h, int v, int r, PVector s, PVector p){
     super(a, h, s, p, v, r, "Turtle", 20);
     this.food = new String[] {"Seaweed"};
-    this.maxAge = 50;
+    this.maxAge = 35;
     this.filling = 3;
 
     this.food = new   String[] {"Jellyfish"};

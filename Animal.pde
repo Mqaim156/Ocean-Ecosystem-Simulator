@@ -4,17 +4,17 @@ class Animal {
   String species;
   PVector speed, pos;
   boolean dead = false;
-  int health = 100;
-  boolean beingHunt = false;
-  int diameter;
-  int filling;
-  int lastHungerUpdated = 0;
-  String[] food = {};
-  boolean isFood;
   boolean isRunning = false;
+  boolean beingHunt = false;
+  boolean isFood;
+  int diameter;
+  int health = 100;
+  int filling;
+  String[] food = {};
   int maxAge;
   int lastAgeUpdated = 0;
-
+  int lastBreedUpdated = 0;
+  int lastHungerUpdated = 0;
   
   //Constructor
   Animal(int a, int h, PVector s, PVector p, int v, int r, String sp, int d){
@@ -24,8 +24,8 @@ class Animal {
     this.pos = p;
     this.vision = v;
     this.reproduction = r;
-    this.species = sp;
     this.diameter = d;
+    this.species = sp;
     this.filling = 0;
     
     if(this.speed.x == 0 && this.species != "Seaweed")
@@ -132,9 +132,9 @@ class Animal {
     // filling the predator
     float factor = 1; // for now 1
     float predFilling = ((float)prey.diameter/this.diameter) * prey.filling * factor; // random formula to check how much the prey will fill the predator
-    //println(this.species, " was filled: ", predFilling);
+    println(this.species, " was filled: ", predFilling);
     this.hunger -= predFilling;
- 
+
   }
   
   // UPDATE METHODS
@@ -144,7 +144,9 @@ class Animal {
     
     checkBorderCollision();
     
-    checkAge();    
+    checkAge();
+    
+    updateBreeding();
         
   }
   
@@ -162,10 +164,26 @@ class Animal {
       lastAgeUpdated = ageCurrTime;
     }
   };
+  
+  void spawn(){}
+
+  void updateBreeding(){
+    int breedCurrTime = millis();
+    int breedTimeElapsed = breedCurrTime - lastBreedUpdated;
+    //println(breedTimeElapsed);
+    if(this.age > (maxAge - 10) && breedTimeElapsed >= 5000 && (!this.dead)){
+      spawn();
+      lastBreedUpdated = breedCurrTime;
+      //println("GOING TO SPAWN");
+    }
+
+  }
+
     
 
 
   //Updates hunger 
+
   void updateHunger(){
     int currTime = millis();
     int timeElapsed = currTime - lastHungerUpdated;

@@ -8,7 +8,6 @@ class Shark extends Animal{
     super(a, h, s, p, v, r, "Shark", 35); // change the 10 for vision and rep rate
     this.food = new String[] {"Clownfish", "Jellyfish", "Octopus", "Turtle", "Shark"};
     this.maxAge = 30;
-
     this.food = new String[] {"Clownfish", "Jellyfish", "Octopus", "Turtle", "Redsnapper", "Tuna"};
 
 

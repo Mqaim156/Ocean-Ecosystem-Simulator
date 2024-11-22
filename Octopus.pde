@@ -6,7 +6,7 @@ class Octopus extends Animal{
   Octopus(int a, int h, int v, int r, PVector s, PVector p){
     super(a, h, s, p, v, r, "Octopus", 30);
     this.food =  new String[] {"Clownfish", "Turtle"};
-    this.maxAge = 40;
+    this.maxAge = 25;
     this.filling = 4;
 
 
@@ -19,6 +19,7 @@ class Octopus extends Animal{
   //Draw me method
 
   void drawMe(){
+
 
     //Makes swim right way
 

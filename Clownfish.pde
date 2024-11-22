@@ -3,6 +3,7 @@ class Clownfish extends Fish{
   // Fields
   
   //Constuctor
+
   Clownfish(int a, int h, int v, int r, PVector s, PVector p){
     super(a, h, s, p, v, r, "Clownfish", 18);
     this.maxAge = 30;
@@ -22,6 +23,7 @@ class Clownfish extends Fish{
 
     }
     
+
     else{
     image(clownfishRImg,this.pos.x - 13,this.pos.y - 13, 25, 25);
       
@@ -29,6 +31,21 @@ class Clownfish extends Fish{
 
     
     updatePos();
+  }
+  
+  void spawn(){
+    
+    int babyAge = 3;
+    int babyHunger = 0;
+    float babySpeedX = this.speed.x*0.5;
+    PVector babySpeed = new PVector(babySpeedX, this.speed.y);
+    PVector babyPos = new PVector(this.pos.x, this.pos.y+15);
+
+    Clownfish babyClown = new Clownfish(babyAge, babyHunger, babySpeed, babyPos);
+    allAnimals.add(babyClown);
+    totalAnimals += 1;
+    println("CLOWNFISH SPAWNNED");
+    
   }
 }
 

@@ -11,6 +11,7 @@ PImage tunaImg;
 boolean paused = false;
 boolean reseted = false;
 
+
 //Reverse Images
 PImage clownfishRImg; 
 PImage seaturtleRImg; 
@@ -114,6 +115,7 @@ void reset(){
 
   // Populate the Animal ArrayList
   for (int i = 0; i<totalSharks; i++)
+
     allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 3)) , SharkVision, SharkReproduction, new PVector(SharkSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
 
   for (int i = 0; i<totalJellies; i++)
@@ -153,6 +155,7 @@ void draw(){
         }
       }
     }
+    println(allAnimals.size());
   }
   else{
    reseted = false;
