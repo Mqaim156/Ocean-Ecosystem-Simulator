@@ -9,6 +9,7 @@ PImage redsnapperImg;
 PImage tunaImg; 
 
 boolean paused = false;
+boolean reseted = false;
 
 //Reverse Images
 PImage clownfishRImg; 
@@ -43,14 +44,14 @@ int FishReproduction;
 float totalFish;
 float totalSharks;
 float totalJellies;
-int totalSeaweed;
+int totalSeaweed = 50;
 //Spliting the totalFish
-int totalReds = int(totalFish/3);
-int totalTunas = int(totalFish/3);
-int totalClowns = int(totalFish) - totalReds - totalTunas;
+int totalReds;
+int totalTunas;
+int totalClowns;
 float totalOctopuses;
 float totalTurtles;
-float totalAnimals = totalSharks + totalJellies + totalClowns + totalSeaweed + totalReds + totalTunas + totalOctopuses + totalTurtles;
+float totalAnimals = totalSharks + totalJellies + totalFish + totalSeaweed + totalOctopuses + totalTurtles;
 ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
 
 
@@ -59,7 +60,6 @@ import g4p_controls.*;
 
 void setup() {
   
-  println(totalJellies);
   totalAnimals = int(totalAnimals);
   
   //Create gui
@@ -93,7 +93,24 @@ void setup() {
 
 void reset(){
   allAnimals.clear();
-  
+  totalAnimals = totalSharks + totalJellies + totalFish + totalSeaweed + totalOctopuses + totalTurtles;
+
+  for (int i = 0; i < totalFish; i++){
+    int random = int(random(1,4));
+    if (random == 1){
+       totalClowns++; 
+    }
+    
+    if (random == 2){
+       totalReds++; 
+    }
+    
+    if (random == 3){
+       totalTunas++; 
+    }
+      
+  }
+
   // Populate the Animal ArrayList
   for (int i = 0; i<totalSharks; i++)
     allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 3)) , SharkVision, SharkReproduction, new PVector(SharkSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
@@ -123,15 +140,22 @@ void reset(){
 
 void draw(){
 
-  if (paused == false){
-    //Create background
-    image(coralReef,1,1);
-  
-    for (int i=0; i<totalAnimals; i++){
-      if(allAnimals.get(i).dead == false){
-        allAnimals.get(i).drawMe();
-        allAnimals.get(i).checkHunger(allAnimals);
+  if (reseted == false){
+    if (paused == false){
+      //Create background
+      image(coralReef,1,1);
+    
+      for (int i=0; i<totalAnimals; i++){
+        if(allAnimals.get(i).dead == false){
+          allAnimals.get(i).drawMe();
+          allAnimals.get(i).checkHunger(allAnimals);
+        }
       }
     }
+  }
+  else{
+   reseted = false;
+   reset();
+    
   }
 }

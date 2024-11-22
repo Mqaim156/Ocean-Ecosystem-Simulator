@@ -79,23 +79,23 @@ public void FishReproductionSliderChanged(GCustomSlider source, GEvent event) { 
 } //_CODE_:FishReproductionSlider:865655:
 
 public void SharkKnobChanged(GKnob source, GEvent event) { //_CODE_:SharkKnob:451662:
-  totalSharks = SharkKnob.getValueF() * 9;
+  totalSharks = SharkKnob.getValueF() ;
 } //_CODE_:SharkKnob:451662:
 
 public void TurtleKnobChanged(GKnob source, GEvent event) { //_CODE_:TurtleKnob:218897:
-  totalTurtles = TurtleKnob.getValueF() * 19;
+  totalTurtles = TurtleKnob.getValueF() ;
 } //_CODE_:TurtleKnob:218897:
 
 public void OctopusKnobChanged(GKnob source, GEvent event) { //_CODE_:OctopusKnob:232914:
-  totalOctopuses = OctopusKnob.getValueF() * 19;
+  totalOctopuses = OctopusKnob.getValueF() ;
 } //_CODE_:OctopusKnob:232914:
 
 public void JellfishKnobChanged(GKnob source, GEvent event) { //_CODE_:JellyfishKnob:384596:
-  totalJellies = JellyfishKnob.getValueF() * 29;
+  totalJellies = JellyfishKnob.getValueF() ;
 } //_CODE_:JellyfishKnob:384596:
 
 public void FishChanged(GKnob source, GEvent event) { //_CODE_:FishKnob:326099:
-  totalFish = FishKnob.getValueF() * 49;
+  totalFish = FishKnob.getValueF() ;
 } //_CODE_:FishKnob:326099:
 
 public void PauseButtonClicked(GButton source, GEvent event) { //_CODE_:PauseButton:497273:
@@ -103,7 +103,7 @@ public void PauseButtonClicked(GButton source, GEvent event) { //_CODE_:PauseBut
 } //_CODE_:PauseButton:497273:
 
 public void ResetButtonClicked(GButton source, GEvent event) { //_CODE_:ResetButton:726745:
-  reset();
+  reseted = true;
 } //_CODE_:ResetButton:726745:
 
 
@@ -124,8 +124,8 @@ public void createGUI(){
   SharkLabel.setText("Shark");
   SharkLabel.setOpaque(false);
   SharkSpeedSlider = new GCustomSlider(window1, 10, 30, 100, 40, "grey_blue");
-  SharkSpeedSlider.setLimits(1, 1, 5);
-  SharkSpeedSlider.setNbrTicks(5);
+  SharkSpeedSlider.setLimits(0, -5, 5);
+  SharkSpeedSlider.setNbrTicks(10);
   SharkSpeedSlider.setNumberFormat(G4P.INTEGER, 0);
   SharkSpeedSlider.setOpaque(false);
   SharkSpeedSlider.addEventHandler(this, "SharkSpeedSliderChanged");
@@ -134,8 +134,8 @@ public void createGUI(){
   TurtleLabel.setText("Turtle");
   TurtleLabel.setOpaque(false);
   TurtleSpeedSlider = new GCustomSlider(window1, 120, 30, 100, 40, "grey_blue");
-  TurtleSpeedSlider.setLimits(1, 1, 5);
-  TurtleSpeedSlider.setNbrTicks(5);
+  TurtleSpeedSlider.setLimits(0, -5, 5);
+  TurtleSpeedSlider.setNbrTicks(10);
   TurtleSpeedSlider.setNumberFormat(G4P.INTEGER, 0);
   TurtleSpeedSlider.setOpaque(false);
   TurtleSpeedSlider.addEventHandler(this, "TurtleSpeedSliderChanged");
@@ -152,20 +152,20 @@ public void createGUI(){
   FishLabel.setText("Fish");
   FishLabel.setOpaque(false);
   OctopusSpeedSlider = new GCustomSlider(window1, 230, 30, 100, 40, "grey_blue");
-  OctopusSpeedSlider.setLimits(1, 1, 5);
-  OctopusSpeedSlider.setNbrTicks(5);
+  OctopusSpeedSlider.setLimits(1, -5, 5);
+  OctopusSpeedSlider.setNbrTicks(10);
   OctopusSpeedSlider.setNumberFormat(G4P.INTEGER, 0);
   OctopusSpeedSlider.setOpaque(false);
   OctopusSpeedSlider.addEventHandler(this, "OctopusSpeedSliderChanged");
   JellyfishSpeedSlider = new GCustomSlider(window1, 340, 30, 100, 40, "grey_blue");
-  JellyfishSpeedSlider.setLimits(1, 1, 5);
-  JellyfishSpeedSlider.setNbrTicks(5);
+  JellyfishSpeedSlider.setLimits(0, -5, 5);
+  JellyfishSpeedSlider.setNbrTicks(10);
   JellyfishSpeedSlider.setNumberFormat(G4P.INTEGER, 0);
   JellyfishSpeedSlider.setOpaque(false);
   JellyfishSpeedSlider.addEventHandler(this, "JellyfishSpeedSliderChanged");
   FishSpeedSlider = new GCustomSlider(window1, 450, 30, 100, 40, "grey_blue");
-  FishSpeedSlider.setLimits(1, 1, 5);
-  FishSpeedSlider.setNbrTicks(5);
+  FishSpeedSlider.setLimits(0, -5, 5);
+  FishSpeedSlider.setNbrTicks(10);
   FishSpeedSlider.setNumberFormat(G4P.INTEGER, 0);
   FishSpeedSlider.setOpaque(false);
   FishSpeedSlider.addEventHandler(this, "FishSpeedSliderChanged");
@@ -287,7 +287,7 @@ public void createGUI(){
   JellyfishKnob.setOverArcOnly(false);
   JellyfishKnob.setIncludeOverBezel(false);
   JellyfishKnob.setShowTrack(true);
-  JellyfishKnob.setLimits(4.0, 0.0, 29.0);
+  JellyfishKnob.setLimits(0.0, 0.0, 29.0);
   JellyfishKnob.setNbrTicks(30);
   JellyfishKnob.setStickToTicks(true);
   JellyfishKnob.setShowTicks(true);
