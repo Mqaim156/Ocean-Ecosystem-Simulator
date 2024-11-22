@@ -152,7 +152,7 @@ public void createGUI(){
   FishLabel.setText("Fish");
   FishLabel.setOpaque(false);
   OctopusSpeedSlider = new GCustomSlider(window1, 230, 30, 100, 40, "grey_blue");
-  OctopusSpeedSlider.setLimits(1, -5, 5);
+  OctopusSpeedSlider.setLimits(0, -5, 5);
   OctopusSpeedSlider.setNbrTicks(10);
   OctopusSpeedSlider.setNumberFormat(G4P.INTEGER, 0);
   OctopusSpeedSlider.setOpaque(false);
