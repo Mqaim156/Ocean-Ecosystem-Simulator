@@ -113,19 +113,19 @@ void reset(){
 
   // Populate the Animal ArrayList
   for (int i = 0; i<totalSharks; i++)
-    allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 3)) , SharkVision, SharkReproduction, new PVector(SharkSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+    allAnimals.add( new Shark( int(random(1, 15)), int(random(1, 3)) , SharkVision, SharkReproduction, new PVector(SharkSpeed + random(-2,2), random(-1, 1)), new PVector( random(width), random(height) ) ));
 
   for (int i = 0; i<totalJellies; i++)
-    allAnimals.add( new Jellyfish( int(random(1, 5)), int(random(1, 2)) , JellyfishVision, JellyfishReproduction, new PVector(JellyfishSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+    allAnimals.add( new Jellyfish( int(random(1, 5)), int(random(1, 2)) , JellyfishVision, JellyfishReproduction, new PVector(JellyfishSpeed  + random(-2,2), random(-1, 1)), new PVector( random(width), random(height) ) ));
 
   for (int i = 0; i<totalClowns; i++)
-    allAnimals.add( new Clownfish( int(random(1, 5)), int(random(1, 2)) , FishVision, FishReproduction, new PVector(FishSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+    allAnimals.add( new Clownfish( int(random(1, 5)), int(random(1, 2)) , FishVision, FishReproduction, new PVector(FishSpeed + random(-2,2), random(-1, 1)), new PVector( random(width), random(height) ) ));
     
   for (int i = 0; i<totalReds; i++)
-    allAnimals.add( new Redsnapper( int(random(3, 28)), int(random(1, 2)) , FishVision, FishReproduction, new PVector(FishSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+    allAnimals.add( new Redsnapper( int(random(3, 28)), int(random(1, 2)) , FishVision, FishReproduction, new PVector(FishSpeed + random(-2,2), random(-1, 1)), new PVector( random(width), random(height) ) ));
     
   for (int i = 0; i<totalTunas; i++)
-    allAnimals.add( new Tuna( int(random(3, 28)), int(random(1, 2)) , FishVision, FishReproduction, new PVector(FishSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
+    allAnimals.add( new Tuna( int(random(3, 28)), int(random(1, 2)) , FishVision, FishReproduction, new PVector(FishSpeed + random(-2,2), random(-1, 1)), new PVector( random(width), random(height) ) ));
     
   for (int i = 0; i<totalOctopuses; i++)
     allAnimals.add( new Octopus( int(random(1, 7)), int(random(1, 2)) , OctopusVision, OctopusReproduction, new PVector(OctopusSpeed, random(-1, 1)), new PVector( random(width), random(height) ) ));
