@@ -176,8 +176,9 @@ class Animal {
       
       lastHungerUpdated = currTime;
       
-      if (this.hunger > 10)
-        this.hunger = 10;
+    if (hunger >= 15);
+      this.die();
+
     }
     
   }
