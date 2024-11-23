@@ -1,9 +1,6 @@
 class Clownfish extends Fish{
   
-  // Fields
-  
-  //Constuctor
-
+  //Constuctor for Clownfish
   Clownfish(int a, int h, int v, int r, PVector s, PVector p){
     super(a, h, s, p, v, r, "Clownfish", 18);
     this.maxAge = 30;
@@ -13,36 +10,36 @@ class Clownfish extends Fish{
   }
 
   //Draw me method
-
   void drawMe(){
 
     //Makes swim right way
-
     if (this.speed.x > 0){
     image(clownfishImg,this.pos.x - 13,this.pos.y - 13, 25, 25);
 
     }
     
-
+    // use reverse img for negative velocity
     else{
     image(clownfishRImg,this.pos.x - 13,this.pos.y - 13, 25, 25);
       
     }
 
-    
     updatePos();
   }
   
+  // Method to spawn more species
   void spawn(){
     
+    // baby attributes
     int babyAge = 3;
     int babyHunger = 0;
     float babySpeedX = this.speed.x*0.5;
     PVector babySpeed = new PVector(babySpeedX, this.speed.y);
     PVector babyPos = new PVector(this.pos.x, this.pos.y+15);
 
+    // create new instance of this species
     Clownfish babyClown = new Clownfish(babyAge, babyHunger, FishVision, FishReproduction, babySpeed, babyPos);
-    allAnimals.add(babyClown);
+    allAnimals.add(babyClown); // add to allAnimals arraylist
     totalAnimals += 1;    
   }
 }
@@ -69,11 +66,9 @@ class Redsnapper extends Fish{
   }
 
   //Draw me method
-
   void drawMe(){
     
     //Makes swim right way 
-    
     if (this.speed.x > 0){
     image(redsnapperImg,this.pos.x - 9,this.pos.y - 9, 18, 18);
 
@@ -83,8 +78,6 @@ class Redsnapper extends Fish{
     image(redsnapperRImg,this.pos.x - 9,this.pos.y - 9, 18, 18);
       
     }
-    
-
     
     updatePos();
   }
@@ -100,8 +93,6 @@ class Redsnapper extends Fish{
     Redsnapper babySnapper = new Redsnapper(babyAge, babyHunger, FishVision, FishReproduction, babySpeed, babyPos);
     allAnimals.add(babySnapper);
     totalAnimals += 1;
-
-    
   }
 }
 
@@ -127,11 +118,9 @@ class Tuna extends Fish{
   }
 
   //Draw me method
-
   void drawMe(){
 
     //Makes swim right way
-    
     if (this.speed.x > 0){
     image(tunaImg,this.pos.x - 15,this.pos.y - 15, 30, 30);
 
@@ -141,10 +130,10 @@ class Tuna extends Fish{
     image(tunaRImg,this.pos.x - 15,this.pos.y - 15, 30, 30);
       
     }
-
     
     updatePos();
   }
+  
   void spawn(){
     
     int babyAge = 3;

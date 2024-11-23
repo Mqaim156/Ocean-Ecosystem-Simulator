@@ -34,7 +34,6 @@ class Seaweed extends Animal{
     
     int babyAge = 3;
     int babyHunger = 0;
-    float babySpeedX = this.speed.x*0.5;
     PVector babyPos = new PVector(this.pos.x+15, this.pos.y);
 
     Seaweed babySeaweed = new Seaweed(babyAge, babyHunger, 10, babyPos);

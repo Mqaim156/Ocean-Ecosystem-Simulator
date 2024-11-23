@@ -14,7 +14,6 @@ class Shark extends Animal{
   }
 
   //Draw me method
-
   void drawMe(){
 
     //Makes swim right way
@@ -29,7 +28,6 @@ class Shark extends Animal{
     image(sharkRImg,this.pos.x - 25,this.pos.y - 25, 50, 50);
       
     }
-
 
     updatePos();
 

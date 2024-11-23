@@ -1,3 +1,6 @@
+// GLOBAL VARIABLES
+
+// regular images
 PImage coralReef;
 PImage clownfishImg; 
 PImage seaturtleImg; 
@@ -22,7 +25,7 @@ PImage octopusRImg;
 PImage redsnapperRImg; 
 PImage tunaRImg; 
 
-//Varibles
+//Variables / attributes
 int SharkSpeed;
 int TurtleSpeed;
 int OctopusSpeed;
@@ -45,12 +48,14 @@ float totalFish;
 float totalSharks;
 float totalJellies;
 int totalSeaweed = 50;
+
 //Spliting the totalFish
 int totalReds;
 int totalTunas;
 int totalClowns;
 float totalOctopuses;
 float totalTurtles;
+
 float totalAnimals = totalSharks + totalJellies + totalFish + totalSeaweed + totalOctopuses + totalTurtles;
 ArrayList<Animal> allAnimals =  new ArrayList<Animal>();
 
@@ -62,12 +67,15 @@ void setup() {
   
   totalAnimals = int(totalAnimals);
   
-  //Create gui
+  // calling Create GUI method 
   createGUI();
+  
+  // canvas 
   
   size(734, 317);
   frameRate(30);
-  //createGUI();
+  
+  // Loading all Images
   coralReef = loadImage("CoralReef.jpg");
   jellyfishImg = loadImage("JellyfishImg.png");
   octopusImg = loadImage("OctopusImg.png");
@@ -91,9 +99,12 @@ void setup() {
 }
 
 
+// Method to reset the simulation
 void reset(){
+  
   allAnimals.clear();
   totalAnimals = totalSharks + totalJellies + totalFish + totalSeaweed + totalOctopuses + totalTurtles;
+  
 
   for (int i = 0; i < totalFish; i++){
     int random = int(random(1,4));
@@ -144,9 +155,11 @@ void draw(){
 
   if (reseted == false){
     if (paused == false){
-      //Create background
+      
+      // background image
       image(coralReef,1,1);
-    
+      
+      // call drawMe and checkHunger method for all animals constantly
       for (int i=0; i<totalAnimals; i++){
         if(allAnimals.get(i).dead == false){
           allAnimals.get(i).drawMe();
@@ -154,8 +167,8 @@ void draw(){
         }
       }
     }
-    //println(allAnimals.size());
   }
+  
   else{
    reseted = false;
    reset();

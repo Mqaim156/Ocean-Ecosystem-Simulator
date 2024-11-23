@@ -1,5 +1,6 @@
 class Animal {
-  //Fields
+  
+  // Animal Fields
   int age, hunger, vision, R, G, B;
   int reproduction;
   String species;
@@ -29,12 +30,15 @@ class Animal {
     this.species = sp;
     this.filling = 0;
     
+    // Make sure no speed is 0
     if(this.speed.x == 0 && this.species != "Seaweed")
       this.speed.x = 2;
     
   }
   
   // CHECK METHODS
+  
+  // check the age of the animals
   void checkAge(){
     
     if (this.age >= maxAge)
@@ -46,7 +50,8 @@ class Animal {
   }
   
   // EATING METHODS
-  //check Hunger
+  
+  //check Hunger of each animal
   void checkHunger(ArrayList<Animal> preys){
 
     if (this.hunger > 6) {
@@ -55,17 +60,18 @@ class Animal {
     
     updateHunger();
   } 
- 
 
+  // EATING PROCESS
+  
   // Hunt / search for a prey
   void hunt(ArrayList<Animal> preys) {
-    //println("hunting");
     
     Animal nearestPrey = null;
     
     // initial value of the minimum distance
     float minDist = 1000;
     
+    // go to next iteration if the animal is 'this' or dead
     for(Animal prey : preys){
       if(prey.dead || prey == this) {
         continue;  
@@ -74,15 +80,15 @@ class Animal {
       
       boolean isFood = false; 
       
+      // check if the prey is edible
       for (String sp : food){
         if(prey.species.equals(sp)){
-          if(prey.species.equals("Shark"))
-            println(prey.species);
           isFood = true;
           break;
         }
       }
       
+      // if its not edible, go to next iteration/prey
       if(!isFood)
         continue;
       
@@ -95,7 +101,8 @@ class Animal {
       }
       
     }
-   
+    
+    // chase the prey
     if(nearestPrey != null)
       chase(nearestPrey);
       
@@ -133,12 +140,13 @@ class Animal {
     // filling the predator
     float factor = 1; // for now 1
     float predFilling = ((float)prey.diameter/this.diameter) * prey.filling * factor; // random formula to check how much the prey will fill the predator
-    println(this.species, " was filled: ", predFilling);
     this.hunger -= predFilling;
 
   }
   
   // UPDATE METHODS
+  
+  // update position / everything else
   void updatePos(){
   
     pos.add(speed);
@@ -159,23 +167,27 @@ class Animal {
     int ageCurrTime = millis();
     int ageTimeElapsed = ageCurrTime - lastAgeUpdated;
     
+    // if its been 10 seconds, increase the age and vision
     if(ageTimeElapsed >= 10000){
       this.age += 1;
       this.vision = this.age * 10;
-      lastAgeUpdated = ageCurrTime;
+      lastAgeUpdated = ageCurrTime; //reset the timer
     }
   };
   
+  // declare to use on child Classes
   void spawn(){}
 
+  // Method to spawn more animals 
   void updateBreeding(){
+    
     int breedCurrTime = millis();
     int breedTimeElapsed = breedCurrTime - lastBreedUpdated;
-    //println(breedTimeElapsed);
+
+    // check if the animal can breed
     if(this.reproduction > 0 && this.age > (maxAge - (5*this.reproduction)) && breedTimeElapsed >= (20000/this.reproduction) && (!this.dead)){
       spawn();
-      lastBreedUpdated = breedCurrTime;
-      //println("GOING TO SPAWN");
+      lastBreedUpdated = breedCurrTime; // reset breed timer
     }
 
   }
@@ -183,9 +195,10 @@ class Animal {
     
 
 
-  //Updates hunger 
-
+  // Updates hunger 
+  
   void updateHunger(){
+    
     int currTime = millis();
     int timeElapsed = currTime - lastHungerUpdated;
     
@@ -195,8 +208,9 @@ class Animal {
       
       lastHungerUpdated = currTime;
       
-    if (hunger >= 15);
+    if (hunger >= 15){ // die by hunger
       this.die();
+    }
 
     }
     
@@ -204,20 +218,16 @@ class Animal {
  
   //Dying method
   void die(){
+    println(this.species, "Died");
     this.dead = true;
    
   }
- 
-  //Base resting method (For movement)
-  void rest(){
-    this.pos.x += this.speed.x;
-    this.pos.y += this.speed.y;
-   
-  }
   
-  ////Method to run when being attacked 
+  //Method to run when being attacked 
   void run(Animal predator){
+    
     float predatorDis;
+    
     //Randomizes run speed so fish might or might not get away
     float runSpeed = random(2,6);
     
@@ -248,12 +258,10 @@ class Animal {
     }
   }
   
- //Draw me 
-  void drawMe(){
-    
+  //Draw me method (used in child classes)
+  void drawMe(){}
   
-  }
-  
+  // check the border collision
   void checkBorderCollision(){
   
     // chceck upper wall

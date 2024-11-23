@@ -8,8 +8,6 @@ class Octopus extends Animal{
     this.food =  new String[] {"Clownfish", "Turtle"};
     this.maxAge = 25;
     this.filling = 4;
-
-
     this.food =  new String[] {"Clownfish", "Tuna", "Redsnapper"};
 
   }
@@ -17,12 +15,9 @@ class Octopus extends Animal{
   //Methods
 
   //Draw me method
-
   void drawMe(){
 
-
     //Makes swim right way
-
     if (this.speed.x > 0){
     image(octopusImg,this.pos.x - 25,this.pos.y - 25, 50, 50);
 
@@ -33,10 +28,10 @@ class Octopus extends Animal{
       
     }
 
-    
     updatePos();
 
   }
+  
   void spawn(){
     
     int babyAge = 3;
@@ -48,7 +43,6 @@ class Octopus extends Animal{
     Octopus babyOcto = new Octopus(babyAge, babyHunger, OctopusVision, OctopusReproduction, babySpeed, babyPos);
     allAnimals.add(babyOcto);
     totalAnimals += 1;
-    println("CLOWNFISH SPAWNNED");
     
   }
 }

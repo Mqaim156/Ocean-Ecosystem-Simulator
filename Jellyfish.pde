@@ -8,8 +8,6 @@ class Jellyfish extends Animal{
     this.food = new String[] {"Seaweed", "Clownfish"};
     this.maxAge = 30;
     this.filling = 3;
-
-
     this.food = new String[] {"Seaweed"};
 
   }
@@ -18,11 +16,9 @@ class Jellyfish extends Animal{
   //Methods
 
   //Draw me method
-
   void drawMe(){
    
     //Makes swim right way
-
     if (this.speed.x > 0){
     image(jellyfishImg,this.pos.x - 22,this.pos.y - 13, 25, 25);
 
@@ -36,6 +32,7 @@ class Jellyfish extends Animal{
     updatePos();
 
   }
+  
   void spawn(){
     
     int babyAge = 3;
